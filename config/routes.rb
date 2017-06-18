@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'static_pages/learn_more'
+
+  get 'static_pages/help'
+
   resources :categories
   resources :item_to_categories
   resources :items
