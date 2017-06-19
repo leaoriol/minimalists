@@ -45,6 +45,7 @@ class ItemToCategoriesController < ApplicationController
         format.html { redirect_to @item_to_category, notice: 'Item to category was successfully updated.' }
         format.json { render :show, status: :ok, location: @item_to_category }
       else
+        puts @item_to_category.errors.full_messages.join(', ')
         format.html { render :edit }
         format.json { render json: @item_to_category.errors, status: :unprocessable_entity }
       end

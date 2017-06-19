@@ -4,10 +4,10 @@ one:
   name: MyString
   quantity: 1
   action: MyString
-  list_id: 1
+  list: one
 
 two:
   name: MyString
   quantity: 1
   action: MyString
-  list_id: 1
+  list: two

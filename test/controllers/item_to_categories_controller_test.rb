@@ -3,6 +3,7 @@ require 'test_helper'
 class ItemToCategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @item_to_category = item_to_categories(:one)
+    items(:one)
   end
 
   test "should get index" do
