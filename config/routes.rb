@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'static_pages/learn_more'
 
-  get 'static_pages/help'
+  get 'static_pages/contact'
 
   resources :categories
   resources :item_to_categories
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :lists
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'users#index'
+  root 'static_pages#contact' #this should be changed eventually to home
 end
