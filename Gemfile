@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
+# Use boostrap for the CSS
+gem 'bootstrap-sass', '3.3.7'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

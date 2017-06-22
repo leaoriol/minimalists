@@ -1,0 +1,14 @@
+// Modules and variables
+@import 'partials/base';
+
+// Third-party
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Partials [Components, page sections, and other compilables]
+@import 'partials/typography';
+@import 'partials/navigation';
+@import 'partials/footer';
+
+// Pages [Page-specific styles, possibly overriding normal partial styles]
+@import 'pages/landing';

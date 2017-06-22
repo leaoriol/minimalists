@@ -1,0 +1,51 @@
+// used to change the default elements like p or h1
+// will apply to the entire website
+
+h1 {
+  font-weight: 200;
+  font-family: $nunito;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-family: $open-sans;
+}
+
+body {
+  line-height: 1.5;
+  color: #373a3c;
+  background-color: #fff;
+  font-family: $open-sans;
+  font-weight: 200;
+  font-size: 1.5em; 
+}
+
+section {
+  overflow: auto;
+}
+
+container-fluid {
+  width: 85%;
+  max-width: 1400px;
+}
+
+.center {
+  text-align: center;
+}
+
+// put a bunch of classes that will use the same basic configs for like the equivalent of h2 so that we can change everything together
+.footer-links {
+  font-weight: 300;
+  letter-spacing: 1.3px;
+}
+
+
+
