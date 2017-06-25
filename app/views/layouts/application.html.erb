@@ -15,9 +15,10 @@
   <body>
     <%= render 'nav/header' %>
     <div class="container">
+      <%= yield %> <!-- whatever is in the html of the controller -->
+      <%= debug(params) if Rails.env.development? %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%=  alert  %></p>
-      <%= yield %> <!-- whatever is in the html of the controller -->
     </div> <!-- body -->
     <%= render 'nav/footer' %>
   </body>

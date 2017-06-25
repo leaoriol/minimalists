@@ -42,9 +42,11 @@ container-fluid {
 }
 
 // put a bunch of classes that will use the same basic configs for like the equivalent of h2 so that we can change everything together
-.footer-links {
+
+.footer-links, .label, input[type=submit] {
   font-weight: 300;
   letter-spacing: 1.3px;
+  font-family: $open-sans;
 }
 
 
