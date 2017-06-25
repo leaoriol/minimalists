@@ -1,0 +1,20 @@
+.btn-success {
+  background-color: $logo-color;
+  border-radius: 0;
+  color: white;
+  border: 1px solid $logo-color;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.btn-success:hover {
+  background-color: $hover-color;
+}
+
+.btn {
+  border-radius: 0;
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
