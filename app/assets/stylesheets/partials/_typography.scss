@@ -51,6 +51,15 @@ container-fluid {
   text-align: center;
 }
 
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
+}
+
+
 // put a bunch of classes that will use the same basic configs for like the equivalent of h2 so that we can change everything together
 
 .footer-links, .label, input[type=submit], .btn {

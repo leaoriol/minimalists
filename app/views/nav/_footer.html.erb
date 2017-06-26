@@ -1,8 +1,16 @@
 <div class="footer navbar-bottom">
   <div class="container-fluid">
     <div class="footer-links">
+      <% if user_signed_in? %>
+        <%= link_to "Lists", '#' %>
+        <%= link_to "Goals", '#' %>
+        <%= link_to "My Account", account_path %>
+      <% else %>
+        <%= link_to "Learn More", learn_more_path %>
+        <%= link_to "Terms", '#' %>
+        <%= link_to "Privacy", '#' %>
+      <% end %>
       <%= link_to "Contact", contact_path %>
-      <%= link_to "Placeholder", '#' %>
     </div>
   </div>
-</div> <!--footer -->
+</div>

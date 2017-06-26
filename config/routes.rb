@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   
   get '/learn_more', to: 'static_pages#learn_more'
   get '/contact',    to: 'static_pages#contact'
-
+  get '/account',    to: 'users#account'
+  
   resources :categories
   resources :item_to_categories
   resources :items

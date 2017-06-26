@@ -8,6 +8,15 @@
   }
 }
 
+.small-form {
+  label {
+    font-size: 20px;
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    display: inline-block;
+  }
+}
+
 form input {
   color: #666666;
   width: 100%;

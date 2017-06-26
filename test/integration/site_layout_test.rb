@@ -13,4 +13,5 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
     assert_template 'static_pages/landing'
     # add more complex root layout testing when ready
   end
+
 end
