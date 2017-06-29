@@ -1,9 +1,40 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "List") %>
 
-<p>
-  <strong>User:</strong>
-  <%= @list.user_id %>
-</p>
+<div class="container">
+  <div class="row margin-top-large margin-bottom-large">
+    <div class="container-fluid center">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
+          <div class="hero-photo-text">
+            <h1>I own</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row margin-top-lg margin-bottom-large">
+    <div class="container-fluid center">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
+          <!-- <%= @list.user_id %>
+          <%= @list.user.name %>
+          <%= @list.id %> -->
+          <% if @list.items.any? %>
+            <ol class="items">
+              <!--This definitely has some items
+              <%= @list.items.first.name %>-->
+              <%= render @items %>
+            </ol>
+          <% else %>
+            Nothing. I am so minimal.
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row margin-top-lg margin-bottom-large">
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

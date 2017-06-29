@@ -1,13 +1,22 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: StringOne
   quantity: 1
   action: MyString
   list: one
+  created_at: <%= 10.minutes.ago %>
 
 two:
-  name: MyString
+  name: StringTwo
   quantity: 1
   action: MyString
   list: two
+  created_at: <%= 5.hours.ago %>
+
+most_recent:
+  name: MostRecentItem
+  quantity: 1
+  action: MyString
+  list: one
+  created_at: <%= Time.zone.now %>

@@ -1,6 +1,16 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
+
+  def create_list
+    if current_user.list.nil?
+      @list = current_user.create_list 
+    else
+      @list = current_user.list
+    end
+    redirect_to list_path(@list)
+  end  
+
   # GET /lists
   # GET /lists.json
   def index
@@ -10,6 +20,9 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    unless @list.items.nil?
+      @items = @list.items
+    end
   end
 
   # GET /lists/new
