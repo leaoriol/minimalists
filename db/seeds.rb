@@ -25,10 +25,17 @@ end
 
 user = User.first
 list = user.create_list
-10.times do
+5.times do
   name = "couch"
   quantity = 1
   category = "furniture"
   action = "keep"
+  list.items.create!(name: name, quantity: quantity, category: category, action: action) 
+end
+5.times do
+  name = "bracelets"
+  quantity = 13
+  category = "jewelry"
+  action = "donate"
   list.items.create!(name: name, quantity: quantity, category: category, action: action) 
 end

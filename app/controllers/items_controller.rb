@@ -14,7 +14,9 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
+    @list = List.find params[:list_id]
+    @item = @list.items.new
+    #@item = Item.new
   end
 
   # GET /items/1/edit
@@ -24,17 +26,24 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
 
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
-      else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
-    end
+    @list = List.find params[:list_id]
+    @item = @list.items.create item_params
+    #puts @item.errors.full_messages
+    redirect_to list_path(@list)
+    #@item.save
+
+    # @item = Item.new(item_params)
+
+    # respond_to do |format|
+    #   if @item.save
+    #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
+    #     format.json { render :show, status: :created, location: @item }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @item.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /items/1
@@ -67,8 +76,11 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
     end
 
+    # def list_params
+    #   params.require(:list).permit(:user_id)
+    # end
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :quantity, :action, :list_id)
+      params.require(:item).permit(:name, :quantity, :action, :list_id, :category)
     end
 end

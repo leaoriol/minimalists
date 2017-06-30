@@ -20,3 +20,13 @@ most_recent:
   action: MyString
   list: one
   created_at: <%= Time.zone.now %>
+
+
+<% 30.times do |n| %>
+item_<%= n %>:
+  name: item_
+  quantity: 1
+  action: test_action
+  list: one
+  created_at: <%= 12.hours.ago %>
+<% end %>

@@ -3,6 +3,7 @@ require 'test_helper'
 class ItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @item = items(:one)
+    @list = lists(:one)
   end
 
   test "should get index" do
@@ -11,17 +12,21 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_item_url
+    get new_item_url #, params: @list
     assert_response :success
   end
 
-  # test "should create item" do
-  #   assert_difference('Item.count') do
-  #     post items_url, params: { item: { action: @item.action, list_id: @item.list_id, name: @item.name, quantity: @item.quantity, category: @item.category} }
-  #   end
+  test "should create item" do
+    puts "Hey Hey \n"
+    assert_difference('Item.count') do
+      post items_url, params: { item: { action: @item.action, list_id: @item.list_id, name: @item.name, quantity: @item.quantity, category: @item.category} }
+    end
 
-  #   assert_redirected_to item_url(Item.last)
-  # end
+    #assert_redirected_to item_url(Item.last) <-- used to be this, changed because changed scope on item model
+    # puts "#{Item.first.id}"
+    # puts "#{@item.id}"
+    assert_redirected_to item_url(Item.first)
+  end
 
   test "should show item" do
     get item_url(@item)
@@ -29,7 +34,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_item_url(@item)
+    get edit_item_url(@item) #, list: @list.id
     assert_response :success
   end
 

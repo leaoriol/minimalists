@@ -11,13 +11,7 @@ class StaticPagesController < ApplicationController
   end
 
   def landing
-    # NO NEED FOR ANY VARIABLE
-    # @test = "hello"
-    # @user = current_user
-    # @list = @user.list.create!
-    # @item = Item.create(list_id: @list.id, name: "test", category: "test", 
-    # # then have a form on landing page - form for list variable which is a new list
-    
+    # NO NEED FOR ANY VARIABLE - controller action for just showing the "create list" button 
   end
 
 end

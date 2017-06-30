@@ -1,37 +1,47 @@
-<%= form_for(item) do |f| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<div class="container">
+  <div class="row margin-bottom-sm">
+    <div class="col-xs-12 col-sm-12">
+      <div class="banner center">
+        <div class="item-form">
+          <% item = Item.new %>
+          <%= form_for [list, item] do |f| %>
+            <% if item.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
-      <% item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+                <ul>
+                <% item.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %> <!-- error messages -->
+            I own 
+            <div class="field">
+            <%= f.number_field :quantity %>
+            </div>
+            
+            <div class="field">
+              <!-- must put hints -->
+              <%= f.text_field :name %>
+            </div>
+            .
+            <div class="field">
+              <%= f.label :i_want_to %>
+              <%= f.text_field :action %>
+            </div>
+
+            <div class="field">
+              <%= f.label :this_piece_of %>
+              <%= f.text_field :category %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
-  </div>
-
-  <div class="field">
-    <%= f.label :action %>
-    <%= f.text_field :action %>
-  </div>
-
-  <div class="field">
-    <%= f.label :list_id %>
-    <%= f.number_field :list_id %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
