@@ -18,7 +18,7 @@
             <% end %> <!-- error messages -->
             <label>I own</label>
             <div class="field">
-            <%= f.number_field :quantity %>
+            <%= f.number_field :quantity, min: 0 %>
             </div>
             
             <div class="field">

@@ -18,7 +18,7 @@
             <% end %> <!-- error messages -->
             <label>I own</label>
             <div class="field">
-              <%= f.number_field :quantity, :placeholder => "15" %>
+              <%= f.number_field :quantity, min: 0, :placeholder => "15" %>
             </div>
             
             <div class="field">
