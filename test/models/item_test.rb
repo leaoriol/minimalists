@@ -6,7 +6,7 @@ class ItemTest < ActiveSupport::TestCase
     @user = users(:one)
     @list = @user.create_list
     # create saves the object to the database, therefore list gets an id
-    @item = @list.items.create(name: "item1", list_id: @list.id)
+    @item = @list.items.create(name: "item1", list_id: @list.id, quantity: 1, action: 'unsure')
   end
 
   test "item should be valid" do 
@@ -17,6 +17,17 @@ class ItemTest < ActiveSupport::TestCase
     @item.list_id = nil
     assert_not @item.valid?
   end
+
+  test "quantity should be present" do
+    @item.quantity = nil
+    assert_not @item.valid?
+  end
+
+  test "action should be present" do
+    @item.action = nil
+    assert_not @item.valid?
+  end
+
 
   test "get first create item first" do
     assert_equal @item, Item.first

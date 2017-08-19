@@ -19,7 +19,7 @@ class ListTest < ActiveSupport::TestCase
 
   test "associated items should be destroyed" do
     @list.save
-    @list.items.create!(name: "test", list_id: @list.id)
+    @list.items.create!(name: "test", list_id: @list.id, quantity: 1, action: 'unsure')
     assert_difference 'Item.count', -1 do
       @list.destroy
     end

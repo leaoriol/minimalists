@@ -1,16 +1,16 @@
+<!-- created edit form because the regular form is nested -->
 <div class="container">
   <div class="row margin-bottom-sm">
     <div class="col-xs-12 col-sm-12">
       <div class="banner center">
         <div class="item-form">
-          <% item = Item.new %>
-          <%= form_for [list, item] do |f| %>
-            <% if item.errors.any? %>
+          <%= form_for @item do |f| %>
+            <% if @item.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+                <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
                 <ul>
-                <% item.errors.full_messages.each do |message| %>
+                <% @item.errors.full_messages.each do |message| %>
                   <li><%= message %></li>
                 <% end %>
                 </ul>
@@ -18,12 +18,11 @@
             <% end %> <!-- error messages -->
             <label>I own</label>
             <div class="field">
-              <%= f.number_field :quantity, :placeholder => "15" %>
+            <%= f.number_field :quantity %>
             </div>
             
             <div class="field">
-              <!-- must put hints -->
-              <%= f.text_field :name, :placeholder => "plants" %>
+              <%= f.text_field :name %>
             </div>
             .
             <div class="field">
@@ -33,7 +32,7 @@
 
             <div class="field">
               <%= f.label :this_piece_of, "this piece of" %>
-              <%= f.text_field :category, :placeholder => "decoration" %>
+              <%= f.text_field :category %>
             </div>
 
             <div class="actions">

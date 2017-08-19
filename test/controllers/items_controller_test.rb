@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
+
   setup do
     @item = items(:one)
     @list = lists(:one)
@@ -11,22 +12,14 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_item_url #, params: @list
-    assert_response :success
-  end
-
   test "should create item" do
-    puts "Hey Hey \n"
+    # create uses list URL because the creation of the item happens in the list URL 
     assert_difference('Item.count') do
-      post items_url, params: { item: { action: @item.action, list_id: @item.list_id, name: @item.name, quantity: @item.quantity, category: @item.category} }
+      post list_items_path(@list), params: { item: { action: @item.action, name: @item.name, quantity: @item.quantity, category: @item.category} }
     end
-
-    #assert_redirected_to item_url(Item.last) <-- used to be this, changed because changed scope on item model
-    # puts "#{Item.first.id}"
-    # puts "#{@item.id}"
-    assert_redirected_to item_url(Item.first)
+    assert_redirected_to list_path(Item.first.list)
   end
+
 
   test "should show item" do
     get item_url(@item)
@@ -50,4 +43,10 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to items_url
   end
+
+  test "should redirect destroy for wrong list" do 
+    #test that if try to delete a micropost from another list when you are on X list, should not work
+
+  end
+
 end

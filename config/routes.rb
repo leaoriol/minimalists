@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :item_to_categories
   resources :items
   resources :lists do
-    resources :items, only: [:create] 
+    resources :items, only: [:create, :destroy] 
   end
 
   resources :users

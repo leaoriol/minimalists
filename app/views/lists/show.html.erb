@@ -5,18 +5,18 @@
     <div class="container-fluid center">
       <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-          <div class="hero-photo-text">
-            <h1>I own</h1>
+          <div class="hero-photo-text center">
+            <h1>I own <%= @list.items.count %> items.</h1>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="row margin-top-lg margin-bottom-large">
-    <div class="container-fluid center">
+    <div class="container-fluid">
       <div class="row">
-        <% if @list.items.any? %>
-          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <% if @list.items.any? %> <!-- show the items if any -->
+          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-3">
             <ol class="main-list">
               <!--This definitely has some items
               <%= @list.items.first.name %>-->
@@ -29,12 +29,12 @@
             <h3>Nothing?</h3>
             <p>C'mon, you cannot be that minimal.</p>
           </div>
-          <div class="col-xs-12 col-md-10 col-lg-12">
+        <% end %>
+        <div class="col-xs-12 col-md-10 col-lg-12">
             <div class="container">
               <%= render 'items/form', list: @list %>
             </div>
           </div>
-        <% end %>
         </div>
       </div>
     </div>

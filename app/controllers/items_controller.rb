@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  #before_action :correct_list, only [:destroy]
 
   # GET /items
   # GET /items.json
@@ -10,17 +11,17 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find params[:id]
   end
 
   # GET /items/new
   def new
-    @list = List.find params[:list_id]
-    @item = @list.items.new
-    #@item = Item.new
+    # no need for new because no item is created in the list URL
   end
 
   # GET /items/1/edit
   def edit
+    @item = Item.find params[:id] # params is URL param
   end
 
   # POST /items
@@ -31,19 +32,6 @@ class ItemsController < ApplicationController
     @item = @list.items.create item_params
     #puts @item.errors.full_messages
     redirect_to list_path(@list)
-    #@item.save
-
-    # @item = Item.new(item_params)
-
-    # respond_to do |format|
-    #   if @item.save
-    #     format.html { redirect_to @item, notice: 'Item was successfully created.' }
-    #     format.json { render :show, status: :created, location: @item }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @item.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # PATCH/PUT /items/1
@@ -51,7 +39,7 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to list_path(@item.list), notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
         format.html { render :edit }
@@ -65,7 +53,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to list_path(@item.list), notice: 'Item was successfully deleted.' }
       format.json { head :no_content }
     end
   end

@@ -32,6 +32,7 @@ class ListsController < ApplicationController
 
   # GET /lists/1/edit
   def edit
+    # page that you go to to update the list
   end
 
   # POST /lists

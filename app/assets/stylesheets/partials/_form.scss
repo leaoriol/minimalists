@@ -40,10 +40,10 @@
     margin-bottom: 20px;
   } 
   input[type=submit] {
-      background-color: $logo-color;
-      border: none;
-      color: white;
-      text-align: center;
+    background-color: $logo-color;
+    border: none;
+    color: white;
+    text-align: center;
   }
   input[type=checkbox] {
     margin-bottom: 20px;
@@ -52,7 +52,7 @@
 
 .item-form {
   label {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 100;
     letter-spacing: 1.2px;
     margin-bottom: -2px;
@@ -60,13 +60,36 @@
   }
   form input {
     color: #666666;
-    text-align: center;
     margin-bottom: 20px;
     font-size: 14px;
+    outline: none;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+  }
+  input[type="number"] {
+    width: 60px;
   }
   input[type=submit] {
+    background-color: $logo-color;
+    color: white;
+    height: 40px;
+    width: 130px;
     border: none;
     text-align: center;
+  }
+  select {
+    font-size: 14px;
+    color: #666666;
+    background: rgba(255,255,255,.1);
+    border: none;
+    border-radius: 4px;
+    margin: 0;
+    outline: 0;
+    padding: 7px;
+    -moz-box-sizing: border-box;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   }
 }
 

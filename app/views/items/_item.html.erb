@@ -1,10 +1,14 @@
-<li id="item-<%= item.id %>" class="main-list-item margin-bottom-sm">
-  <div class="row">
-    <div class="col-lg-1 right-align"><%= item.quantity %></div>
-    <div class="col-lg-2"><%= item.name %>.</div>
-    <div class="col-lg-2">I want to</div>
-    <div class="col-lg-2"><%= item.action %></div>
-    <div class="col-lg-3">this piece of</div>
-    <div class="col-lg-2"><%= item.category %></div>
+<li id="item-<%= item.id %>" class="main-list-item margin-bottom-xsm">
+  <div>
+    <p><%= item.quantity %> <%= item.name %>. I'd like to <%= item.action %> this piece of <%= item.category %>.</p>
+    <%= link_to edit_item_path(item.id) do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
+    <%= link_to item_path(item.id), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
   </div>
 </li>
+
+
+
