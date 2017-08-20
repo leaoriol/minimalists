@@ -4,7 +4,7 @@ class ListTest < ActiveSupport::TestCase
   
   def setup
     @user = users(:one)
-    @list = @user.create_list
+    @list = @user.create_list(name: "test")
     #build creates the record but does not save it in the DB
   end
 
@@ -14,6 +14,11 @@ class ListTest < ActiveSupport::TestCase
 
   test "user_id should be present" do
     @list.user_id = nil
+    assert_not @list.valid?
+  end
+
+  test "list_name should be present" do
+    @list.name = nil
     assert_not @list.valid?
   end
 

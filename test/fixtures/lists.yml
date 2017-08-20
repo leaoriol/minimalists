@@ -2,6 +2,8 @@
 
 one:
   user: one
+  name: TestOne
 
 two:
   user: two
+  name: TestTwo

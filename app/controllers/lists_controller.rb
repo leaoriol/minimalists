@@ -1,20 +1,11 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
-
-
-  def create_list
-    if current_user.list.nil?
-      @list = current_user.create_list 
-    else
-      @list = current_user.list
-    end
-    redirect_to list_path(@list)
-  end  
+  before_action :user_signed_in?, only: [:create]
 
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    @lists = current_user.lists
   end
 
   # GET /lists/1
@@ -38,15 +29,16 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
-    @list = List.new(list_params)
+    @list = current_user.create_list(list_params)
 
     respond_to do |format|
       if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
+        format.html { redirect_to list_path(@list), notice: 'List was successfully created.' }
         format.json { render :show, status: :created, location: @list }
+        # debugger
       else
         format.html { render :new }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
+        format.json { render json: list_path(@list).errors, status: :unprocessable_entity }
       end
     end
   end
@@ -83,6 +75,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:user_id)
+      params.require(:list).permit(:user_id, :name)
     end
 end

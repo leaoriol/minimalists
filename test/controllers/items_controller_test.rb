@@ -33,7 +33,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should update item" do
     patch item_url(@item), params: { item: { action: @item.action, list_id: @item.list_id, name: @item.name, quantity: @item.quantity } }
-    assert_redirected_to item_url(@item)
+    assert_redirected_to list_url(@item.list)
   end
 
   test "should destroy item" do
@@ -41,7 +41,7 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
       delete item_url(@item)
     end
 
-    assert_redirected_to items_url
+    assert_redirected_to list_url(@item.list)
   end
 
   test "should redirect destroy for wrong list" do 
