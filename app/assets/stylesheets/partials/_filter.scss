@@ -1,0 +1,14 @@
+.item-search {
+ border: none;
+ border-bottom: 1px solid #999999;
+ font-size: 18px;
+ width: 100%;
+ margin-bottom: 10px; 
+}
+.item-search:focus {
+  outline: none;
+}
+
+.hidden-attribute {
+  display: none;
+}

@@ -1,22 +1,40 @@
 <% provide(:title, "List") %>
 
 <div class="container">
-  <div class="row margin-top-large margin-bottom-large">
+  <div class="row margin-top-md margin-bottom-large">
     <div class="container-fluid center">
       <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
           <div class="hero-photo-text center">
-            <h1>I own <%= @list.items.count %> items.</h1>
+            <h1>My <i><%= @list.name %></i> list</h1>
+            <p>I own <%= pluralize(@list.items.count, "item") %></p>
           </div>
         </div>
-      </div>
+      </div> <!-- list title -->
+      <div class="row margin-top-sm margin-bottom-sm">
+        <div class="col-xs-4 col-md-4 col-lg-4">
+          <input class="item-search" id="search-filter" placeholder="Search for an item" type="text"></input>
+        </div> <!-- search filter -->
+        <div class="col-xs-4 col-md-4 col-lg-4">
+          <div class="button-group">
+            FILTER BY: 
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <% Item.actions.each do |action| %>
+                <li><a href="#" class="small" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xs-4 col-md-4 col-lg-4"></div>
+      </div> <!-- list details and filters -->
     </div>
   </div>
   <div class="row margin-top-lg margin-bottom-large">
     <div class="container-fluid">
       <div class="row">
         <% if @list.items.any? %> <!-- show the items if any -->
-          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-3">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-4">
             <ol class="main-list">
               <!--This definitely has some items
               <%= @list.items.first.name %>-->
@@ -38,7 +56,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> <!-- items section -->
     </div>
   </div>
   <div class="row margin-top-lg margin-bottom-large">

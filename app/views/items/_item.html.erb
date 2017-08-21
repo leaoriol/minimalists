@@ -1,6 +1,9 @@
 <li id="item-<%= item.id %>" class="main-list-item margin-bottom-xsm">
+  <div class="hidden-attribute">
+    <%= item.name %> 
+  </div>
   <div>
-    <p><%= item.quantity %> <%= item.name %>. I'd like to <%= item.action %> this piece of <%= item.category %>.</p>
+    <p><%= item.quantity %> <%= item.name %>. I'd like to <%= item.action %> this <%= item.category %> item.</p>
     <%= link_to edit_item_path(item.id) do %>
       <i class="fa fa-pencil" aria-hidden="true"></i>
     <% end %>

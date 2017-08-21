@@ -1,5 +1,9 @@
 // partial for all lists 
 
+ol {
+  margin-left: -40px;
+}
+
 .main-list {
   list-style-type: none;
 }
@@ -12,5 +16,12 @@
   }
   i {
     color: $logo-color;
+  }
+  a {
+    color: $text-color;
+    text-decoration-color: $logo-color;
+    i {
+      text-decoration: none;
+    }
   }
 }

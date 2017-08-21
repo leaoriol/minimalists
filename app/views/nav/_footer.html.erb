@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="footer-links">
       <% if user_signed_in? %>
-        <%= link_to "Lists", '#' %>
+        <%= link_to "Lists", lists_path %>
         <%= link_to "Goals", '#' %>
         <%= link_to "My Account", account_path %>
       <% else %>
