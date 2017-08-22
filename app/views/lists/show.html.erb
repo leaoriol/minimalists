@@ -15,15 +15,25 @@
         <div class="col-xs-4 col-md-4 col-lg-4">
           <input class="item-search" id="search-filter" placeholder="Search for an item" type="text"></input>
         </div> <!-- search filter -->
-        <div class="col-xs-4 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-md-12 col-lg-6">
           <div class="button-group">
             FILTER BY: 
-            <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <% Item.actions.each do |action| %>
-                <li><a href="#" class="small" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
-              <% end %>
-            </ul>
+            <div class="inline">
+              <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <% Item.actions.each do |action| %>
+                 <li><a href="#" class="small" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
+                <% end %>
+              </ul>
+            </div> <!-- actions filter -->
+            <div class="inline">
+              <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">CATEGORIES <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <% @list.items.map(&:category).uniq.each do |cat| %>
+                 <li><a href="#" class="small" data-value="<%= cat %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= cat %></a></li>
+                <% end %>
+              </ul>
+            </div> <!-- categories filter -->
           </div>
         </div>
         <div class="col-xs-4 col-md-4 col-lg-4"></div>
