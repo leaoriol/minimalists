@@ -1,9 +1,12 @@
 <li id="item-<%= item.id %>" class="main-list-item margin-bottom-xsm">
-  <div class= "hidden-attribute hidden">
-    <%= item.name %> 
+  <div class="hidden-search-attribute hidden">
+    <%= item.quantity %>
+    <%= item.name %>
+    <%= item.action %> 
+    <%= item.category %>
   </div>
-  <div class="hidden-action hidden">
-    <%= item.action %>
+  <div class="hidden-filter-attribute hidden">
+    <%= item.action %>,<%= item.category %>
   </div>
   <div>
     <p><%= item.quantity %> <%= item.name %>. I'd like to <%= item.action %> this <%= item.category %> item.</p>

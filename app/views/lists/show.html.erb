@@ -22,7 +22,7 @@
               <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <% Item.actions.each do |action| %>
-                 <li><a href="#" class="small" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
+                 <li><a href="#" class="action-filter" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
                 <% end %>
               </ul>
             </div> <!-- actions filter -->
@@ -30,7 +30,7 @@
               <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">CATEGORIES <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <% @list.items.map(&:category).uniq.each do |cat| %>
-                 <li><a href="#" class="small" data-value="<%= cat %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= cat %></a></li>
+                 <li><a href="#" class="category-filter" data-value="<%= cat %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= cat %></a></li>
                 <% end %>
               </ul>
             </div> <!-- categories filter -->
