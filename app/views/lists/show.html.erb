@@ -1,7 +1,7 @@
 <% provide(:title, "List") %>
 
 <div class="container">
-  <div class="row margin-top-md margin-bottom-large">
+  <div class="row margin-top-md margin-bottom-md">
     <div class="container-fluid center">
       <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
@@ -10,36 +10,44 @@
             <p>I own <%= pluralize(@list.items.count, "item") %></p>
           </div>
         </div>
-      </div> <!-- list title -->
-      <div class="row margin-top-sm margin-bottom-sm">
-        <div class="col-xs-4 col-md-4 col-lg-4">
-          <input class="item-search" id="search-filter" placeholder="Search for an item" type="text"></input>
-        </div> <!-- search filter -->
-        <div class="col-xs-12 col-md-12 col-lg-6">
-          <div class="button-group">
-            FILTER BY: 
-            <div class="inline">
-              <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <% Item.actions.each do |action| %>
-                 <li><a href="#" class="action-filter" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
-                <% end %>
-              </ul>
-            </div> <!-- actions filter -->
-            <div class="inline">
-              <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">CATEGORIES <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <% @list.items.map(&:category).uniq.each do |cat| %>
-                 <li><a href="#" class="category-filter" data-value="<%= cat %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= cat %></a></li>
-                <% end %>
-              </ul>
-            </div> <!-- categories filter -->
-          </div>
-        </div>
-        <div class="col-xs-4 col-md-4 col-lg-4"></div>
-      </div> <!-- list details and filters -->
+      </div>
     </div>
-  </div>
+  </div> <!-- list title & details -->
+  <% if @list.items.any? %>
+    <div class="row margin-bottom-md">
+      <div class="container-fluid">
+        <div class="row margin-top-sm margin-bottom-sm">
+          <div class="col-xs-12 col-md-6 col-lg-6">
+            <input class="item-search" id="search-filter" placeholder="Search for an item" type="text"></input>
+          </div> <!-- search filter -->
+          <div class="col-xs-12 col-md-12 col-lg-6">
+            <div class="right-align">
+              <div class="button-group">
+                FILTER BY: 
+                <div class="inline margin-left-sm">
+                  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <% Item.actions.each do |action| %>
+                     <li><a href="#" class="action-filter" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
+                    <% end %>
+                  </ul>
+                </div> <!-- actions filter -->
+                <div class="inline">
+                  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">CATEGORIES <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <% @list.items.map(&:category).uniq.each do |cat| %>
+                     <li><a href="#" class="category-filter" data-value="<%= cat %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= cat %></a></li>
+                    <% end %>
+                  </ul>
+                </div> <!-- categories filter -->
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4 col-md-4 col-lg-4"></div>
+        </div>
+      </div>
+    </div> <!-- search and filters row -->
+  <% end %> <!-- display filters section -->
   <div class="row margin-top-lg margin-bottom-large">
     <div class="container-fluid">
       <div class="row">
@@ -68,8 +76,8 @@
         </div>
       </div> <!-- items section -->
     </div>
-  </div>
+  </div> <!-- display items section -->
   <div class="row margin-top-lg margin-bottom-large">
-  </div>
+  </div> <!-- empty space -->
 </div>
 

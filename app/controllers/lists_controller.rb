@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
-  before_action :user_signed_in?, only: [:create]
+  before_action :verify_logged_in
+  before_action :correct_user, only: [:show]
 
   # GET /lists
   # GET /lists.json
@@ -76,5 +77,10 @@ class ListsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:user_id, :name).merge(user_id: current_user.id)
+    end
+
+    def correct_user 
+      @list = current_user.lists.find_by(id: params[:id])
+      redirect_to root_path if @list.nil?
     end
 end

@@ -42,26 +42,11 @@ section {
   overflow: auto;
 }
 
-container-fluid {
-  width: 85%;
-  max-width: 1400px;
-}
+// typography for specific sections
 
-.center {
-  text-align: center;
-}
-
-.left-align {
-  text-align: left;
-}
-
-.right-align {
-  text-align: right;
-}
-
-.container {
-  margin-right: auto;
-  margin-left: auto; 
+.create-list {
+  font-size: 1.3em;
+  color: $cerulean;
 }
 
 
