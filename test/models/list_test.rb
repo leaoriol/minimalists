@@ -4,7 +4,8 @@ class ListTest < ActiveSupport::TestCase
   
   def setup
     @user = users(:one)
-    @list = @user.create_list(name: "test")
+    @list = List.create(name: "test", user_id: @user.id)
+    # @list = @user.create_list(name: "test")
     #build creates the record but does not save it in the DB
   end
 

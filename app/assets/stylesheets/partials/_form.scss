@@ -102,3 +102,23 @@
   width: auto;
   height: auto;
 }
+
+.items-goal {
+  border: none;
+  width: 15px;
+  outline: none;
+  cursor: pointer;
+}
+.items-goal:focus {
+  outline: none;
+}
+
+.no-spinners {
+  -moz-appearance:textfield;
+}
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

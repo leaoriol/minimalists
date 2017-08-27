@@ -1,18 +1,24 @@
 <% provide(:title, "List") %>
 
 <div class="container">
+  <div class="hidden js-list-id">
+    <%= @list.id %>
+  </div>
   <div class="row margin-top-md margin-bottom-md">
     <div class="container-fluid center">
       <div class="row">
         <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
           <div class="hero-photo-text center">
             <h1>My <i><%= @list.name %></i> list</h1>
-            <p>I own <%= pluralize(@list.items.count, "item") %></p>
+            <p>I own <%= pluralize(@list.items.count, "item") %>
+            <% unless @list.items.count == 0 %> and I'd like to own <input class="items-goal no-spinners center" id="js-items-goal" value="<%= @list.goal.nil? ? 0 : @list.goal %>" min="0" type="number"></input> items
+            <% end %>
+          </p>
           </div>
         </div>
       </div>
     </div>
-  </div> <!-- list title & details -->
+  </div> <!-- list title & items count -->
   <% if @list.items.any? %>
     <div class="row margin-bottom-md">
       <div class="container-fluid">

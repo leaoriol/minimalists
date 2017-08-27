@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :item_to_categories
   resources :items
+  resources :goals
   resources :lists do
     resources :items, only: [:create, :destroy] 
   end

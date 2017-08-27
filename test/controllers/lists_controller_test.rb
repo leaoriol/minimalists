@@ -19,15 +19,15 @@ class ListsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # test "should create list" do
-  #   puts List.count
-  #   assert_difference('List.count') do
-  #     post lists_path, params: { list: { user_id: @current_user.id, name: "integreation test list" } }
-  #     puts "inside " + List.count.to_s
-  #   end
-  #   puts List.count
-  #   assert_redirected_to list_url(List.last)
-  # end
+  test "should create list" do
+    # puts List.count
+    assert_difference('List.count') do
+      post lists_path, params: { list: { user_id: @current_user.id, name: "integreation test list" } }
+      # puts "inside " + List.count.to_s
+    end
+    # puts List.count
+    assert_redirected_to list_url(List.last)
+  end
 
   test "should show list" do
     get list_url(@list)

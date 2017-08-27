@@ -49,6 +49,17 @@ section {
   color: $cerulean;
 }
 
+.goals-number {
+  font-family: $montserrat;
+  font-size: 45px;
+  color: #fafafa;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
 
 // put a bunch of classes that will use the same basic configs for like the equivalent of h2 so that we can change everything together
 

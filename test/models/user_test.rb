@@ -19,9 +19,18 @@ class UserTest < ActiveSupport::TestCase
 
   test "associated list should be destroyed" do 
     @user.save
-    @user.create_list(name: "test")
+    @list = List.create(name: "test", user_id: @user.id)
+    # @user.create_list(name: "test")
     assert_difference 'List.count', -1 do
       @user.destroy
+    end
+  end
+
+  test 'associated goals should be destroyed' do
+    @user.save
+    @goal = Goal.create(overall_goal: 0, user_id: @user.id)
+    assert_difference 'Goal.count', -1 do
+      @user.destroy 
     end
   end
 

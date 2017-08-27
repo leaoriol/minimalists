@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  overall_goal: 1
+  user: one
+
+two:
+  overall_goal: 1
+  user: two

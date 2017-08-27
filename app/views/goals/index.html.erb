@@ -1,0 +1,31 @@
+<% provide(:title, "Goals") %>
+<p id="notice"><%= notice %></p>
+
+<div class="container margin-bottom-large">
+  <div class="banner">
+    <div class="row">
+      <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+        Placeholder for percentage complete
+      </div>
+      <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+        <% count = current_user.lists.count %>
+        <% word = 'list' %>
+        <div class="goals-number">
+          <%= count %>
+        </div>
+        <div class="goals-title">
+          <% if count > 1 %>
+            <%= word.pluralize %>
+          <% else %>
+            <%= word %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+        Placeholder for something else
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,5 +1,5 @@
 $(document).ready(function($) {
-  console.log("hello");
+  // console.log("hello");
 
   // implement search + filtering
   // add a class to filters that were hidden - when searching, make sure NOT to show the things that were hidden by filters

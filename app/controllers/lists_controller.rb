@@ -47,15 +47,17 @@ class ListsController < ApplicationController
   # PATCH/PUT /lists/1
   # PATCH/PUT /lists/1.json
   def update
+
     respond_to do |format|
       if @list.update(list_params)
         format.html { redirect_to @list, notice: 'List was successfully updated.' }
-        format.json { render :show, status: :ok, location: @list }
+        format.json { render json: { status: 200 } }
       else
         format.html { render :edit }
         format.json { render json: @list.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /lists/1
@@ -76,7 +78,7 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:user_id, :name).merge(user_id: current_user.id)
+      params.require(:list).permit(:user_id, :name, :goal).merge(user_id: current_user.id)
     end
 
     def correct_user 
