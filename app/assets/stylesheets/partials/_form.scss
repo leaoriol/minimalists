@@ -113,6 +113,17 @@
   outline: none;
 }
 
+.overall-goal {
+  border: none;
+  //width: 22px;
+  outline: none;
+  cursor: pointer;
+  background: #fafafa;
+}
+.overall-goal:focus {
+  outline: none;
+}
+
 .no-spinners {
   -moz-appearance:textfield;
 }

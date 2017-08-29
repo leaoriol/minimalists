@@ -1,11 +1,17 @@
 require 'test_helper'
 
 class GoalsControllerTest < ActionDispatch::IntegrationTest
+  include ApplicationHelper
+  include Devise::Test::IntegrationHelpers
+
   setup do
     @goal = goals(:one)
+    @list = lists(:one)
+    @user = users(:one)
   end
 
   test "should get index" do
+    sign_in @user
     get goals_url
     assert_response :success
   end

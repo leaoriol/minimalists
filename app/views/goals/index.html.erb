@@ -2,19 +2,40 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container margin-bottom-large">
+  <div class="hidden js-goal-id">
+    <%= current_user.goal.id %>
+  </div>
+  <div class="hidden js-goal-length">
+    <%= current_user.goal.overall_goal.to_s.length %>
+  </div>
   <div class="banner">
     <div class="row">
+      <div class="center">
+        <h1>My goal is to own 
+
+          <input class="overall-goal no-spinners center" id="js-overall-goal" value="<%= current_user.goal.nil? ? 0 : current_user.goal.overall_goal %>" min="0" type="number"></input> 
+
+         items.</h1>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-        Placeholder for percentage complete
+        <div class="c100 p50">
+          <span>50%</span>
+          <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+          </div>
+        </div>
       </div>
       <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-        <% count = current_user.lists.count %>
+        <% lists_count = current_user.lists.count %>
         <% word = 'list' %>
         <div class="goals-number">
-          <%= count %>
+          <%= lists_count %>
         </div>
         <div class="goals-title">
-          <% if count > 1 %>
+          <% if lists_count > 1 %>
             <%= word.pluralize %>
           <% else %>
             <%= word %>
@@ -22,7 +43,18 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-        Placeholder for something else
+        <% items_count = current_user.lists.map(&:items).sum.count %>
+        <% word = 'item' %>
+        <div class="goals-number">
+          <%= items_count %>
+        </div>
+        <div class="goals-title">
+          <% if items_count > 1 %>
+            <%= word.pluralize %>
+          <% else %>
+            <%= word %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

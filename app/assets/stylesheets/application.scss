@@ -17,6 +17,9 @@
 @import 'partials/filter';
 @import 'partials/alignment';
 
+// Vendor - 3rd party
+@import 'vendor/circle';
+
 // Pages [Page-specific styles, possibly overriding normal partial style]
 @import 'pages/landing';
 

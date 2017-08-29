@@ -27,6 +27,9 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # Use devise for user authentification 
 gem 'devise'
+# compass gem required for percentage rounds
+gem 'compass-rails'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
