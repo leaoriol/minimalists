@@ -3,6 +3,7 @@
 
 h1 {
   font-weight: 200;
+  font-size: 2em;
 }
 
 h2 {
@@ -15,7 +16,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 1em;
   letter-spacing: 1px;
   font-weight: 100;
   color: #777;
@@ -42,6 +43,14 @@ section {
   overflow: auto;
 }
 
+.soft {
+  font-size: 0.75em;
+  font-weight: 100;
+  color: $light-text-color;
+}
+
+
+
 // typography for specific sections
 
 .create-list {
@@ -61,6 +70,7 @@ section {
 }
 
 
+
 // put a bunch of classes that will use the same basic configs for like the equivalent of h2 so that we can change everything together
 
 .footer-links, .label, input[type=submit], .btn {
@@ -69,5 +79,11 @@ section {
   font-family: $open-sans;
 }
 
+.section-header {
+  border-bottom: 2px solid #cecece;
+  height: auto;
+  margin-bottom: 24px;
+  width: 100%;
+}
 
 

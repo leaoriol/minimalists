@@ -1,12 +1,14 @@
 // resizes element for input
 // updates the list with the goal of items
 
-$(document).ready(function($){
+$(document).on('turbolinks:load', function() {
+
 
   // set ininitial input width
   var goalLength = $('.js-goal-length').text().trim();
   console.log("Goal length: " + goalLength);
-  $('#js-overall-goal').css('width', (goalLength * 22) + 'px');
+  $('#js-overall-goal').css('width', (goalLength * 24) + 'px');
+
 
   // GOAL PER LIST
   // get list id from the page
@@ -30,12 +32,10 @@ $(document).ready(function($){
       method: 'PATCH',
       dataType: "json",
       url: url,
-      data: data_send,
-      success: function(data) {
-        //console.log(data)
-      }
+      data: data_send
     });
   });
+
 
   // GOAL PER USER 
   // get user id from the page
@@ -46,7 +46,7 @@ $(document).ready(function($){
   $('#js-overall-goal').keyup(function(event) {
     // resize the element
     console.log("test");
-    $(this).css('width', (($(this).val().length) * 22) + 'px');
+    $(this).css('width', (($(this).val().length) * 24) + 'px');
 
     // ajax call to make the element
     var overallGoalValue = $(this).val();
@@ -59,10 +59,19 @@ $(document).ready(function($){
       method: 'PATCH',
       dataType: "json",
       url: url,
-      data: data_send,
-      success: function(data) {
-
-      }
+      data: data_send
     });
+  });
+
+
+  // SHOW CREATE GOAL BANNER
+  var noGoalBanner = $('.js-no-goal-banner');
+  var createGoalBanner = $('.js-create-goal-banner');
+  createGoalBanner.hide();
+
+  $('.toggle-create').click(function() {
+    console.log("test button click");
+    noGoalBanner.hide();
+    createGoalBanner.toggle();
   });
 });

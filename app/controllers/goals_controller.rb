@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
+  before_action :verify_logged_in
 
   # GET /goals
   # GET /goals.json
@@ -28,10 +29,10 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
+        format.html { redirect_to goals_url, notice: 'Goal was successfully created.' }
         format.json { render :show, status: :created, location: @goal }
       else
-        format.html { render :new }
+        format.html { redirect_to goals_url, alert: "Your goal was set incorrectly, please try again"}
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +70,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:overall_goal, :user_id)
+      params.require(:goal).permit(:overall_goal, :user_id).merge(user_id: current_user.id)
     end
 end

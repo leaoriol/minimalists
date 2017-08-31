@@ -1,4 +1,5 @@
-$(document).ready(function($) {
+$(document).on('turbolinks:load', function() {
+
   // console.log("hello");
 
   // implement search + filtering

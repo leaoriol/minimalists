@@ -2,62 +2,101 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container margin-bottom-large">
-  <div class="hidden js-goal-id">
-    <%= current_user.goal.id %>
-  </div>
-  <div class="hidden js-goal-length">
-    <%= current_user.goal.overall_goal.to_s.length %>
-  </div>
-  <div class="banner">
-    <div class="row">
-      <div class="center">
-        <h1>My goal is to own 
-
-          <input class="overall-goal no-spinners center" id="js-overall-goal" value="<%= current_user.goal.nil? ? 0 : current_user.goal.overall_goal %>" min="0" type="number"></input> 
-
-         items.</h1>
+  <div class="container">
+    <% if Goal.where(:user_id => current_user.id).empty? %> <!-- display create goal -->
+      <div class="row">
+        <div class="banner">
+          <div class="js-no-goal-banner">
+            <div class="center">
+              <h1>You do not have a goal yet.</h1>
+              <h3>How many items would you like to own?</h3>
+              <div class="margin-top-md">
+                <p class="soft">Add a goal</p>
+                <span class="toggle-create">
+                  <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
+                </span>
+             </div>
+            </div>
+          </div> 
+          <div class="js-create-goal-banner">
+            <% @goal = Goal.new %>
+            <%= render 'form', goal: @goal %>
+          </div>
+        </div>
+      </div> <!-- no goal banner -->
+    <% else %> <!-- display goal if user has a goal -->
+      <div class="hidden js-goal-id">
+      <%= current_user.goal.id %>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-        <div class="c100 p50">
-          <span>50%</span>
-          <div class="slice">
-            <div class="bar"></div>
-            <div class="fill"></div>
+      <div class="hidden js-goal-length">
+        <%= current_user.goal.overall_goal.to_s.length %>
+      </div>
+      <div class="row">
+        <div class="banner">
+          <div class="row">
+            <div class="center">
+              <h1>My goal is to own 
+
+                <input class="overall-goal no-spinners center" id="js-overall-goal" value="<%= current_user.goal.nil? ? 0 : current_user.goal.overall_goal %>" min="0" type="number"></input> 
+
+               items.</h1>
+            </div>
+          </div> <!-- title row -->
+          <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+              <div class="c100 p50 center">
+                <span>50%</span>
+                <div class="slice">
+                  <div class="bar"></div>
+                  <div class="fill"></div>
+                </div>
+              </div>
+            </div> <!-- percentage goal --> 
+            <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+              <% lists_count = current_user.lists.count %>
+              <% word = 'list' %>
+              <div class="goals-number">
+                <%= lists_count %>
+              </div>
+              <div class="goals-title">
+                <% if lists_count > 1 %>
+                  <%= word.pluralize %>
+                <% else %>
+                  <%= word %>
+                <% end %>
+              </div>
+            </div> <!-- total lists --> 
+            <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+              <!-- check if users has lists -->
+              <% items_count = current_user.lists.empty? ? 0 : current_user.lists.map(&:items).sum.count %>
+              <% word = 'item' %>
+              <div class="goals-number">
+                <%= items_count %>
+              </div>
+              <div class="goals-title">
+                <% if items_count > 1 %>
+                  <%= word.pluralize %>
+                <% else %>
+                  <%= word %> 
+                <% end %>
+              </div>
+            </div> <!-- total items -->
+          </div> <!-- icons row -->
+        </div>
+      </div> <!-- goal banner -->
+    <% end %> 
+  </div> <!-- goals section --> 
+  <div class="container">
+    <div class="margin-bottom-large margin-top-sm">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header">
+            <h4>My lists</h4>
           </div>
         </div>
       </div>
-      <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-        <% lists_count = current_user.lists.count %>
-        <% word = 'list' %>
-        <div class="goals-number">
-          <%= lists_count %>
-        </div>
-        <div class="goals-title">
-          <% if lists_count > 1 %>
-            <%= word.pluralize %>
-          <% else %>
-            <%= word %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-        <% items_count = current_user.lists.map(&:items).sum.count %>
-        <% word = 'item' %>
-        <div class="goals-number">
-          <%= items_count %>
-        </div>
-        <div class="goals-title">
-          <% if items_count > 1 %>
-            <%= word.pluralize %>
-          <% else %>
-            <%= word %>
-          <% end %>
-        </div>
-      </div>
     </div>
-  </div>
+  </div> <!-- list section -->
 </div>
 
 
