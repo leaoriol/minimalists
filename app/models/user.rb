@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one   :goal, dependent: :destroy
 
   def percent_success 
-    (total_items - overall_goal ) / total_items.to_f * 100.00
+    ((1 - (total_items - overall_goal ) / total_items.to_f) * 100.00).to_i
   end
 
   def overall_goal
