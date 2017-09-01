@@ -69,7 +69,7 @@ $(document).on('turbolinks:load', function() {
   var createGoalBanner = $('.js-create-goal-banner');
   createGoalBanner.hide();
 
-  $('.toggle-create').click(function() {
+  $('.js-toggle-create').click(function() {
     console.log("test button click");
     noGoalBanner.hide();
     createGoalBanner.toggle();

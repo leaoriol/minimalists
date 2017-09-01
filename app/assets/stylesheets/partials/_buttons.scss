@@ -23,6 +23,11 @@
   color: $logo-color;
 }
 
-.toggle-create {
+.pointer {
   cursor: pointer;
+}
+
+.m-inherit-link {
+  color: inherit;
+  text-decoration: none;
 }
