@@ -1,9 +1,10 @@
 .item-search {
  border: none;
  border-bottom: 1px solid #999999;
- font-size: 18px;
- width: 300px;
+ font-size: 14px;
+ width: 250px;
  margin-bottom: 10px; 
+ text-align: right;
 }
 .item-search:focus {
   outline: none;
@@ -11,10 +12,6 @@
 
 .hidden {
   display: none;
-}
-
-.inline {
-  display: inline-block;
 }
 
 .dropdown-menu {

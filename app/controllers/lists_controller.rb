@@ -12,9 +12,6 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
-    unless @list.items.nil?
-      @items = @list.items.paginate(page: params[:page])
-    end
   end
 
   # GET /lists/new

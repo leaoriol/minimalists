@@ -1,9 +1,6 @@
 $(document).on('turbolinks:load', function() {
 
-  // console.log("hello");
-
-  // implement search + filtering
-  // add a class to filters that were hidden - when searching, make sure NOT to show the things that were hidden by filters
+  // SEARCH AND FILTER FUNCTIONALITIES ---------------------------
 
   // gets every element that has the hidden attribute class
   var listItemsAttributes = $('.hidden-search-attribute');
@@ -118,4 +115,16 @@ $(document).on('turbolinks:load', function() {
     console.log("CAT FILTERS: " + activeCatFilters);
     return false
   });
+
+  // SHOW CREATE NEW ITEM IN LIST FUNCTINOALITY -----------------------
+
+  var buttonCreateItem = $('.js-button-create-item');
+  var createItemBanner = $('.js-create-item-banner');
+  createItemBanner.hide();
+
+  $('.js-toggle-create-item').click(function() {
+    buttonCreateItem.hide();
+    createItemBanner.toggle();
+  });
+
 });

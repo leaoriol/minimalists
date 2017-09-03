@@ -1,47 +1,46 @@
-<div class="container">
-  <div class="row margin-bottom-sm margin-top-sm">
-    <div class="col-xs-12 col-sm-12">
-      <div class="banner center">
-        <div class="item-form">
-          <% item = Item.new %>
-          <%= form_for [list, item] do |f| %>
-            <% if item.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+<div class="row margin-bottom-sm margin-top-sm">
+  <div class="col-xs-12 col-sm-12">
+    <div class="banner center">
+      <div class="item-form">
+        <% item = Item.new %>
+        <%= form_for [list, item] do |f| %>
+          <% if item.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-                <ul>
-                <% item.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-                </ul>
-              </div>
-            <% end %> <!-- error messages -->
-            <label>I own</label>
-            <div class="field">
-              <%= f.number_field :quantity, min: 0, :placeholder => "15" %>
+              <ul>
+              <% item.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
             </div>
-            
-            <div class="field">
-              <!-- must put hints -->
-              <%= f.text_field :name, :placeholder => "plants" %>
-            </div>
-            .
-            <div class="field">
-              <%= f.label :i_want_to %>
-              <%= f.collection_select(:action, Item.actions, :to_s, :to_s) %>
-            </div>
+          <% end %> <!-- error messages -->
+          <label>I own</label>
+          <div class="field">
+            <%= f.number_field :quantity, min: 0, :placeholder => "15" %>
+          </div>
+          
+          <div class="field">
+            <!-- must put hints -->
+            <%= f.text_field :name, :placeholder => "plants" %>
+          </div>
+          .
+          <div class="field">
+            <%= f.label :i_want_to %>
+            <%= f.collection_select(:action, Item.actions, :to_s, :to_s) %>
+          </div>
 
-            <div class="field">
-              <%= f.label :this_piece_of, "this piece of" %>
-              <%= f.text_field :category, :placeholder => "decoration" %>
-            </div>
+          <div class="field">
+            <%= f.label :this_piece_of, "this piece of" %>
+            <%= f.text_field :category, :placeholder => "decoration" %>
+          </div>
 
-            <div class="actions">
-              <%= f.submit %>
-            </div>
-          <% end %>
-        </div>
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+

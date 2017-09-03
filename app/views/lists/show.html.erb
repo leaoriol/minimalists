@@ -1,45 +1,57 @@
 <% provide(:title, "List") %>
 
-<div class="container">
+<div>
   <div class="hidden js-list-id">
     <%= @list.id %>
   </div>
-  <div class="row margin-top-md margin-bottom-md">
-    <div class="container-fluid center">
+  <div class="row margin-bottom-large">
+    <div class="col-xs-12 col-md-12 col-lg-6">
       <div class="row">
-        <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-          <div class="hero-photo-text center">
-            <h1>My <i><%= @list.name %></i> list</h1>
-            <p>I own <%= pluralize(@list.items.count, "item") %>
-            <% unless @list.items.count == 0 %> and I'd like to own <input class="items-goal no-spinners center" id="js-items-goal" value="<%= @list.goal.nil? ? 0 : @list.goal %>" min="0" type="number"></input> items
+        <div class="col-xs-12">
+          <h1>My <%= @list.name %> list</h1>
+        </div>
+        <div class="col-xs-12">
+          <div class="grey-text">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+            <%= pluralize(@list.item_quantity, "item") %>, <%= pluralize(@list.object_quantity, "object") %>
+            <p>
+            <% unless @list.items.count == 0 %>
+              <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+              <input class="items-goal no-spinners center" id="js-items-goal" value="<%= @list.goal.nil? ? 0 : @list.goal %>" min="0" type="number"></input> items
             <% end %>
-          </p>
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </div> <!-- list title & items count -->
-  <% if @list.items.any? %>
-    <div class="row margin-bottom-md">
-      <div class="container-fluid">
-        <div class="row margin-top-sm margin-bottom-sm">
-          <div class="col-xs-12 col-md-6 col-lg-6">
-            <input class="item-search" id="search-filter" placeholder="Search for an item" type="text"></input>
-          </div> <!-- search filter -->
-          <div class="col-xs-12 col-md-12 col-lg-6">
+    </div> <!-- title and goal -->
+
+    <div class="col-xs-12 col-md-12 col-lg-6">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="margin-top-large">
+            <% if @list.items.any? %>
             <div class="right-align">
-              <div class="button-group">
+              <input class="item-search" id="search-filter" placeholder="Search for an item" type="text"></input>
+            </div>
+          <% end %>
+          </div>
+        </div> <!-- search -->
+        <div class="col-xs-12 margin-top-px-xsm">
+          <% if @list.items.any? %>
+              <div class="button-group right-align">
                 FILTER BY: 
+                <!--<i class="fa fa-sliders" aria-hidden="true"></i>-->
                 <div class="inline margin-left-sm">
-                  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
+                  <button type="button" class="btn btn-small btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
                   <ul class="dropdown-menu">
                     <% Item.actions.each do |action| %>
                      <li><a href="#" class="action-filter" data-value="<%= action %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= action %></a></li>
                     <% end %>
                   </ul>
                 </div> <!-- actions filter -->
+
                 <div class="inline">
-                  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">CATEGORIES <span class="caret"></span></button>
+                  <button type="button" class="btn btn-small btn-default btn-sm dropdown-toggle" data-toggle="dropdown">CATEGORIES <span class="caret"></span></button>
                   <ul class="dropdown-menu">
                     <% @list.items.map(&:category).uniq.each do |cat| %>
                      <li><a href="#" class="category-filter" data-value="<%= cat %>" tabIndex="-1"><input type="checkbox"/>&nbsp;<%= cat %></a></li>
@@ -47,43 +59,52 @@
                   </ul>
                 </div> <!-- categories filter -->
               </div>
-            </div>
-          </div>
-          <div class="col-xs-4 col-md-4 col-lg-4"></div>
+            <% end %>
+        </div> <!-- filter -->
+      </div>
+    </div> <!-- search and filter -->
+  </div>
+
+  <div class="row ptl margin-bottom-large">
+    <% if @list.items.any? %> <!-- show items -->
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="list-thumbnail center margin-bottom-md">
+          <i class="fa fa-thumbs-o-up fa-3x" aria-hidden="true"></i>
+        </div>
+        <ol class="main-list">
+          <%= render @list.items.keep %>
+        </ol>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="list-thumbnail center margin-bottom-md">
+          <i class="fa fa-thumbs-o-down fa-3x" aria-hidden="true"></i>
+        </div>
+        <ol class="main-list">
+          <%= render @list.items.discard %>
+        </ol>
+      </div>
+    <% else %> <!-- no items -->
+      <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <div class="center margin-bottom-sm">
+          <h3>Nothing?</h3>
+          <p>C'mon, you cannot be that minimalist.</p>
         </div>
       </div>
-    </div> <!-- search and filters row -->
-  <% end %> <!-- display filters section -->
-  <div class="row margin-top-lg margin-bottom-large">
-    <div class="container-fluid">
-      <div class="row">
-        <% if @list.items.any? %> <!-- show the items if any -->
-          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-4">
-            <ol class="main-list">
-              <!--This definitely has some items
-              <%= @list.items.first.name %>-->
-              <%= render @items %>
-            </ol>
-            <%= will_paginate @items %>
-          </div>
-        <% else %>
-          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-            <div class="center margin-bottom-sm">
-              <h3>Nothing?</h3>
-              <p>C'mon, you cannot be that minimalist.</p>
-            </div>
-          </div>
-        <% end %>
-        <div class="col-xs-12 col-md-10 col-lg-12">
-            <div class="container">
-              <%= render 'items/form', list: @list %>
-            </div>
-          </div>
+    <% end %>
+    <div class="col-xs-12 center">
+      <div class="js-button-create-item">
+        <div class="margin-top-large">
+          <p class="soft">Add an item</p>
+          <span class="js-toggle-create-item pointer">
+            <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
+          </span>
         </div>
-      </div> <!-- items section -->
-    </div>
-  </div> <!-- display items section -->
-  <div class="row margin-top-lg margin-bottom-large">
-  </div> <!-- empty space -->
+      </div>
+      <div class="js-create-item-banner">
+        <%= render 'items/form', list: @list %>
+      </div>
+    </div> <!-- create items -->
+  </div>
+
 </div>
 

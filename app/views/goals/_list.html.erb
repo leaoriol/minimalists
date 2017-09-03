@@ -1,7 +1,14 @@
 <!-- partial for list tile in goals -->
 <div class="m-list-goal-box">
-  <h1><%=list.name.slice(0,1).capitalize + list.name.slice(1..-1) %></h1>
-  <h4><%= list.items.count %> items</h4>
-  <h4>Goal: <%= list.goal.nil? ? 0 : list.goal %></h4>
+  <h4><%=list.capitalize %></h4>
+  <div class="c100 p<%= list.percent_success %> center small">
+    <span><%= list.percent_success %>%</span>
+    <div class="slice">
+      <div class="bar"></div>
+      <div class="fill"></div>
+    </div>
+  </div>
+  <h4 class="inline "><%= list.item_quantity %> items</h4>
+  <h4 class="inline separator center">Goal: <%= list.goal_quantity %></h4>
 </div>
 
