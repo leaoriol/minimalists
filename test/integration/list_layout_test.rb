@@ -14,9 +14,10 @@ class ListLayoutTest < ActionDispatch::IntegrationTest
     get list_path(@list)
     # assert_template 'lists/#{@list.id}'
     assert_match @list.items.count.to_s, response.body
-    assert_select 'div.pagination'
-    @list.items.paginate(page: 1).each do |item|
-      assert_match item.name, response.body
-    end
+    # REMOVED PAGINATION FOR ITEMS
+    # assert_select 'div.pagination'
+    # @list.items.paginate(page: 1).each do |item|
+    #   assert_match item.name, response.body
+    # end
   end
 end
