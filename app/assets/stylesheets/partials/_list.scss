@@ -13,6 +13,7 @@ ol {
   p {
     display: inline;
     margin-right: 5px;
+    line-height: 60px;
   }
   i {
     color: $logo-color;
@@ -28,14 +29,4 @@ ol {
 
 .list-thumbnail {
   color: $logo-color;
-}
-
-// list tiles
-
-.m-list-goal-box {
-  border-left: 4px solid $logo-color;
-  background-color: $background-color;
-  margin-bottom: 24px;
-  padding: 24px;
-  width: 100%;
 }

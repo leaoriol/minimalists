@@ -15,7 +15,9 @@
 one:
   user: one
   name: TestOne
+  goal: 1
 
 two:
   user: two
   name: TestTwo
+  goal: 1

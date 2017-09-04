@@ -37,7 +37,7 @@ class List < ApplicationRecord
 
   def percent_success
     return 0 if object_count == 0
-    ((1 - (object_count - goal ) / object_count).to_f * 100.00).to_i
+    ((1 - (object_count - goal ) / object_count.to_f) * 100.00).to_i
   end
 
   # should be in a helper
@@ -46,3 +46,5 @@ class List < ApplicationRecord
     name.slice(0,1).capitalize + name.slice(1..-1)
   end
 end
+
+

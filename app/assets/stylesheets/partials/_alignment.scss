@@ -23,3 +23,14 @@ container-fluid {
 .inline {
   display: inline-block;
 }
+
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aligner-item {
+  /*max-width: 50%;*/
+  flex: 1;
+}

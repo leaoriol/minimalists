@@ -1,0 +1,26 @@
+// item tiles
+.item-box {
+  border: 1px solid #dbdbdb;
+  border-left: 4px solid $mist;
+  background-color: #EFF7F6;
+  padding: 10px;
+  width: 100%;
+}
+
+.item-action-size {
+  width: 50px;
+}
+.item-category-size {
+  width: 125px;
+}
+
+// list tiles
+
+.m-list-goal-box {
+  border-left: 4px solid $logo-color;
+  background-color: $background-color;
+  margin-bottom: 24px;
+  padding: 24px;
+  width: 100%;
+}
+

@@ -12,11 +12,10 @@
         </div>
         <div class="col-xs-12">
           <div class="grey-text">
-            <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            <%= pluralize(@list.object_count, "item") %>
+            I own <%= pluralize(@list.object_count, "item") %>
             <p>
             <% unless @list.object_count == 0 %>
-              <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+              My goal is to own 
               <input class="items-goal no-spinners center" id="js-items-goal" value="<%= @list.goal %>" min="0" type="number"></input> items
             <% end %>
             </p>
