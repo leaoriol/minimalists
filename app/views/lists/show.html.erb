@@ -13,11 +13,11 @@
         <div class="col-xs-12">
           <div class="grey-text">
             <i class="fa fa-bar-chart" aria-hidden="true"></i>
-            <%= pluralize(@list.item_quantity, "item") %>, <%= pluralize(@list.object_quantity, "object") %>
+            <%= pluralize(@list.object_count, "item") %>
             <p>
-            <% unless @list.items.count == 0 %>
+            <% unless @list.object_count == 0 %>
               <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-              <input class="items-goal no-spinners center" id="js-items-goal" value="<%= @list.goal.nil? ? 0 : @list.goal %>" min="0" type="number"></input> items
+              <input class="items-goal no-spinners center" id="js-items-goal" value="<%= @list.goal %>" min="0" type="number"></input> items
             <% end %>
             </p>
           </div>

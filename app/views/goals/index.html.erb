@@ -28,7 +28,7 @@
         <%= current_user.goal.id %>
       </div>
       <div class="hidden js-goal-length">
-        <%= current_user.overall_goal.to_s.length %>
+        <%= current_user.goal_count.to_s.length %>
       </div>
       <div class="row">
         <div class="banner">
@@ -36,9 +36,9 @@
             <div class="center">
               <h1>My goal is to own 
 
-                <input class="overall-goal no-spinners center" id="js-overall-goal" value="<%= current_user.overall_goal.nil? ? 0 : current_user.overall_goal %>" min="0" type="number"></input> 
+                <input class="overall-goal no-spinners center" id="js-overall-goal" value="<%= current_user.goal_count %>" min="0" type="number"></input> 
 
-                <%= pluralize_without_count(current_user.overall_goal.nil? ? 0 : current_user.overall_goal, "item", ".") %>
+                <%= pluralize_without_count(current_user.object_count, "item", ".") %>
                </h1>
             </div>
           </div> <!-- title row -->
@@ -54,19 +54,19 @@
             </div> <!-- percentage goal --> 
             <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
               <div class="goals-number">
-                <%= current_user.total_lists %>
+                <%= current_user.lists.count %>
               </div>
               <div class="goals-title">
-                <%= pluralize_without_count(current_user.total_lists, 'list') %>    
+                <%= pluralize_without_count(current_user.lists.count, 'list') %>    
               </div>
             </div> <!-- total lists --> 
             <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
               <!-- check if users has lists -->
               <div class="goals-number">
-                <%= current_user.lists.empty? ? 0 : current_user.total_items %>
+                <%= current_user.object_count %>
               </div>
               <div class="goals-title">
-                <%= pluralize_without_count(current_user.lists.empty? ? 0 : current_user.total_items, 'item') %>
+                <%= pluralize_without_count(current_user.object_count, 'item') %>
               </div>
             </div> <!-- total items -->
           </div> <!-- icons row -->

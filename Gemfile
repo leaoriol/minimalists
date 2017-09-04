@@ -29,6 +29,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 # compass gem required for percentage rounds
 gem 'compass-rails'
+# gem for annotation for models
+gem 'annotate'
 
 
 # Use jquery as the JavaScript library
