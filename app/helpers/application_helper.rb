@@ -16,4 +16,8 @@ module ApplicationHelper
     end
   end
 
+  def capitalize
+    name.slice(0,1).capitalize + name.slice(1..-1)
+  end
+
 end

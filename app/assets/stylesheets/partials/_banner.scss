@@ -16,13 +16,15 @@
 }
 
 .hero-photo-container {
-  width: 100%;
   height: auto;
   position: relative;
   display: block;
+  margin: 0;
 }
 
 .hero-photo-section {
+  background-repeat: no-repeat;
+  background-size: 100%;
   width: 100%;
   height: auto;
   min-height: 400px;
@@ -38,5 +40,31 @@
   z-index: 2;
   padding-top: 40px;
   padding-bottom: 30px;
-  margin-top: -40px;
+}
+
+.hero-photo-text-background {
+  background-color: rgba(225,225,225,0.9);
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  height: auto;
+}
+
+.thumbnail-photo-section {
+  min-height: 345px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+    width: 100%;
+    height: auto;
+  display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 30px;
 }

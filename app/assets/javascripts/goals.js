@@ -10,33 +10,6 @@ $(document).on('turbolinks:load', function() {
   $('#js-overall-goal').css('width', (goalLength * 24) + 'px');
 
 
-  // GOAL PER LIST
-  // get list id from the page
-  var listId = $('.js-list-id').text().trim();
-  console.log(listId);
-
-  // make the call to update list goal
-  $('#js-items-goal').keyup(function(event) {
-    console.log('here!');
-    // resize of the element
-    $(this).css('width', (($(this).val().length + 1) * 8) + 'px');
-
-    // ajax call for the list goal 
-    var goalValue = $(this).val();
-    console.log(goalValue);
-    var url = '/lists/' + listId;
-    console.log(url);
-    data_send = { list: { id: listId, goal: goalValue } }
-
-    $.ajax({
-      method: 'PATCH',
-      dataType: "json",
-      url: url,
-      data: data_send
-    });
-  });
-
-
   // GOAL PER USER 
   // get user id from the page
   var goalId = $('.js-goal-id').text().trim();

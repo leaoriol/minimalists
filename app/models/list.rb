@@ -20,7 +20,7 @@ class List < ApplicationRecord
   # callback methods - before_create, after_create, before_save, etc.
 
   def set_defaults
-    self.goal = 0
+    self.items.discard.empty? ? self.goal = 0 : self.items.discard.count
   end
 
   # class method (starts with self. )
@@ -37,14 +37,25 @@ class List < ApplicationRecord
 
   def percent_success
     return 0 if object_count == 0
-    ((1 - (object_count - goal ) / object_count.to_f) * 100.00).to_i
+    ((1 - (object_count - set_goal ) / object_count.to_f) * 100.00).to_i
+  end
+
+  def items_to_discard_count
+    items.discard.map(&:quantity).sum
+  end
+
+  def items_to_keep_count
+    items.keep.map(&:quantity).sum
+  end
+
+  def set_goal
+    goal = object_count - items_to_discard_count
   end
 
   # should be in a helper
 
-  def capitalize
-    name.slice(0,1).capitalize + name.slice(1..-1)
-  end
+
+
 end
 
 

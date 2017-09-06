@@ -127,4 +127,5 @@ $(document).on('turbolinks:load', function() {
     createItemBanner.toggle();
   });
 
+
 });

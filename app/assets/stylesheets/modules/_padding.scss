@@ -37,3 +37,17 @@
 .prs {
   padding-right: 0.5em;
 }
+
+// zero padding
+.plzero {
+  padding-left: 0 !important;
+}
+.przero {
+  padding-right: 0 !important;
+}
+.ptzero {
+  padding-top: 0;
+}
+.pbzero {
+  padding-bottom: 0;
+}

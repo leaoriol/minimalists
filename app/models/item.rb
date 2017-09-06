@@ -34,7 +34,4 @@ class Item < ApplicationRecord
     item.quantity
   end
 
-  # create a scope
-  # scope = easy wya to add query + customize query
-
 end 

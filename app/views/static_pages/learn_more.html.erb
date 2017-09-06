@@ -1,9 +1,102 @@
 <% provide(:title, "Learn More") %>
 
-<div class="container">
-  <div class="hero-photo-container">
-    <div class="hero-photo-section" style="background-image: url(<%= asset_path 'coffee_meeting.jpg' %>) ">
+<div class="banner-light pbl">
+  <h1>How It Works</h1>
+  <h3 class="light-text-color">Learn what MinimaLists can do for you.</h3>
+</div>
+
+<div class="hero-photo-container">
+  <div class="row">
+
+    <div class="pointer js-toggle-learn-more-list">
+      <div class="przero col-xs-12 col-md-4 col-lg-4">
+        <div class="hero-photo-section" style="background-image: url(<%= asset_path 'oscar-nilsson-1860.jpg' %>) ">
+          <div class="container-fluid center margin-top-large margin-bottom-large">
+            <div class="hero-photo-text-background">
+              <h1>Less clutter</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pointer js-toggle-learn-more-goal">
+      <div class="plzero przero col-xs-12 col-md-4 col-lg-4">
+        <div class="hero-photo-section" style="background-image: url(<%= asset_path 'todd-quackenbush-701.jpg' %>) ">
+          <div class="container-fluid center margin-top-large margin-bottom-large">
+            <div class="hero-photo-text-background">
+              <h1>Reachable goals</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pointer js-toggle-learn-more-brain">
+      <div class="plzero col-xs-12 col-md-4 col-lg-4">
+        <div class="hero-photo-section" style="background-image: url(<%= asset_path 'priscilla-du-preez-363213.jpg' %>) ">
+          <div class="container-fluid center margin-top-large margin-bottom-large">
+            <div class="hero-photo-text-background">
+              <h1>More brain space</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="js-learn-more-list">
+  <div class="row pll">
+    <div class="margin-top-large margin-bottom-large">
+      <div class="col-xs-12 col-md-6">
+        <h1>List all your possessions!</h1>
+        <h2 class="light-text-color">How</h2>
+        <p>Three simple steps:
+          1. Create a list
+          2. Add items to the list
+          3. Decide whether you want to keep, discard, donate, or sell your item</p>
+          <p>Create more lists and switch between them to get a sense of what you own.</p>
+          <p>Update the lists and their items as you buy more stuff or get rid of some.</p>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h4>Let's see how</h4>
+        <div class="thumbnail-photo-section photo-box-shadow" style="background-image: url(<%= asset_path 'placeholder_minimalists.jpg' %>) "></div>
+      </div>
     </div>
   </div>
 </div>
+
+<div class="js-learn-more-goal">
+  <div class="row pll">
+    <div class="margin-top-large margin-bottom-large">
+      <div class="col-xs-12 col-md-6">
+        <h1>Track your goals!</h1>
+        <h2 class="light-text-color">How</h2>
+        <p>Under your goals, you can set your overall goal - think of it as the number of items you'd like to own. Many choose 100, but that may not be the best place to start. You want your goal to be reachable.</p>
+        <p>Each list has its own goal, determined by the number of items you wish to discard.</p>
+        <p>You can track your overall goal and each lists' goals' progress on this page.</p>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h4>Let's see how</h4>
+        <div class="thumbnail-photo-section photo-box-shadow" style="background-image: url(<%= asset_path 'placeholder_minimalists.jpg' %>) "></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="js-learn-more-brain">
+  <div class="row pll">
+    <div class="margin-top-large margin-bottom-large">
+      <div class="col-xs-12 col-md-6">
+        <h1>Free up some brain space!</h1>
+        <h2 class="light-text-color">How</h2>
+        <p>Two free and immediate benefits from tracking your possessions are: 1. Less clutter, and 2. something that describes the fact that you are </p>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <h4>Let's see how</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
 

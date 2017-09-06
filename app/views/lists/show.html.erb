@@ -15,8 +15,7 @@
             I own <%= pluralize(@list.object_count, "item") %>
             <p>
             <% unless @list.object_count == 0 %>
-              My goal is to own 
-              <input class="items-goal no-spinners center" id="js-items-goal" value="<%= @list.goal %>" min="0" type="number"></input> items
+              My goal is to own <%= @list.set_goal %> items
             <% end %>
             </p>
           </div>
@@ -93,7 +92,7 @@
     <div class="col-xs-12 center">
       <div class="js-button-create-item">
         <div class="margin-top-large">
-          <p class="soft">Add an item</p>
+          <h3 class="soft">Add an item</h3>
           <span class="js-toggle-create-item pointer">
             <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
           </span>

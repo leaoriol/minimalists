@@ -17,10 +17,30 @@
 // list tiles
 
 .m-list-goal-box {
-  border-left: 4px solid $logo-color;
+  border-left: 4px solid $mist;
   background-color: $background-color;
   margin-bottom: 24px;
   padding: 24px;
   width: 100%;
 }
 
+.container {
+  margin-right: auto;
+  margin-left: auto; 
+}
+
+.no-container {
+  margin-right: -200px;
+  margin-left: -200px;
+}
+
+.container-fluid {
+  width: 85%;
+  max-width: 1400px;
+}
+
+.photo-box-shadow {
+-webkit-box-shadow: 1px 3px 8px 3px rgba(138,140,139,0.61);
+-moz-box-shadow: 1px 3px 8px 3px rgba(138,140,139,0.61);
+box-shadow: 1px 3px 8px 3px rgba(138,140,139,0.61);
+}

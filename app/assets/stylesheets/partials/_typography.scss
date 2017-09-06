@@ -8,19 +8,23 @@ h1 {
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  text-align: center;
-  font-weight: normal;
-  color: #777;
+  letter-spacing: 1px;
+  font-weight: 200;
 }
+
+//taken away from h2:
+// margin-bottom: 30px
+// text-align: center
+// color: #777
 
 h3 {
   font-size: 1em;
   letter-spacing: 1px;
   font-weight: 100;
-  color: #777;
 }
+
+//taken away from h3:
+// color: #777
 
 h4 {
   font-size: 1.25em;
@@ -30,6 +34,7 @@ h4 {
 
 h1, h2, h3, h4 {
   font-family: $nunito;
+  color: $text-color;
 }
 
 p {
@@ -46,12 +51,15 @@ body {
   font-size: 1.5em; 
 }
 
+.light-text-color {
+  color: $light-text-color;
+}
+
 section {
   overflow: auto;
 }
 
 .soft {
-  font-size: 0.75em;
   font-weight: 100;
   color: $light-text-color;
 }
@@ -78,6 +86,10 @@ section {
 
 .item-attribute {
   font-size: 15px;
+}
+
+.hero-photo-text {
+  font-weight: 200;
 }
 
 
