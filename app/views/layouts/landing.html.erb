@@ -13,13 +13,9 @@
   </head>
 
   <body>
-    <% flash.each do |message_type, message| %>
-        <div class="<%= message_type %>"><%= message %></div>
-    <% end %>
-    <%= render 'nav/header' %>
-    <div class="container">
+    <div class="container-fluid">
       <%= yield %> 
-    </div> <!-- body -->
+    </div>
     <%= render 'nav/footer' %>
   </body>
 </html>

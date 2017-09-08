@@ -24,7 +24,6 @@
 
 .hero-photo-section {
   background-repeat: no-repeat;
-  background-size: 100%;
   width: 100%;
   height: auto;
   min-height: 400px;
@@ -67,4 +66,9 @@
     position: relative;
     padding-top: 40px;
     padding-bottom: 30px;
+}
+
+.hero-photo-landing {
+  background-repeat: no-repeat;
+  background-size: cover;
 }

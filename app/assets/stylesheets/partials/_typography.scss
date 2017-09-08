@@ -7,7 +7,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: 1px;
   font-weight: 200;
 }
@@ -16,6 +16,7 @@ h2 {
 // margin-bottom: 30px
 // text-align: center
 // color: #777
+// changed from 1.2em to 1.5em
 
 h3 {
   font-size: 1em;
@@ -109,4 +110,9 @@ section {
   width: 100%;
 }
 
+p.description {
+  font-size: 1em;
+  letter-spacing: 0.4px;
+  line-height: 25px;
+}
 

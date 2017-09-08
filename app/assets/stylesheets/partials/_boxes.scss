@@ -35,9 +35,10 @@
 }
 
 .container-fluid {
-  width: 85%;
-  max-width: 1400px;
+  padding: 0;
 }
+// use to be: width: 85%
+// max-width: 1400px
 
 .photo-box-shadow {
 -webkit-box-shadow: 1px 3px 8px 3px rgba(138,140,139,0.61);
