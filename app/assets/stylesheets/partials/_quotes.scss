@@ -1,0 +1,14 @@
+blockquote {
+  border:none;
+  quotes: "\201C""\201D""\2018""\2019";
+  font-family: auto;
+}
+
+blockquote:before {
+  color: $logo-color;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}

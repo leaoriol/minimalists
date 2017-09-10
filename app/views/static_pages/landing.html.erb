@@ -1,7 +1,39 @@
-
-  <div class="hero-photo-container">
-    <div class="hero-photo-landing" style="background-image: url(<%= asset_path 'tu-tu-322210.jpg' %>)"></div>
+<div class="hero-photo-landing" style="background-image: url(<%= asset_path 'tu-tu-322210.jpg' %>)">
+</div>
+<div class="hero-overlay plxl">
+  <div class="logo-landing">MinimaLists</div>
+  <h1>What do I own?</h1>
+</div>
+<div class="m-create-list-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        <div class="center">
+          <%= link_to "Get started", new_list_path, class: "btn btn-landing" %>
+          <h3>Or <%= link_to "sign in", '/users/sign_in' %> if you already have an account</h3>
+        </div>
+      </div>
+    </div>
   </div>
-
+</div>
+<div class="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        <div class="center">
+          <p class="landing">MinimaLists helps you reach spareness and simplicity. By listing your possessions, you reach an awareness of how much you own.</p>
+          <p class="landing">What you do next is up to you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="light-grey-banner">
+  <div class="container">
+    <div class="row center">
+      <h1 class="border-landing">OWN LESS</h1>
+    </div>
+  </div>
+</div> 
 
 

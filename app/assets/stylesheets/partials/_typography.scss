@@ -52,6 +52,15 @@ body {
   font-size: 1.5em; 
 }
 
+.logo-landing {
+  color: white;
+  font-family: $nunito;
+  font-size: 65px;
+  font-weight: 100;
+  padding-top: 550px;
+  line-height: 1em;
+}
+
 .light-text-color {
   color: $light-text-color;
 }
@@ -114,5 +123,9 @@ p.description {
   font-size: 1em;
   letter-spacing: 0.4px;
   line-height: 25px;
+}
+
+p.landing {
+  font-size: 1.8rem;
 }
 

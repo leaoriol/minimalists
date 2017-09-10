@@ -45,3 +45,15 @@
 -moz-box-shadow: 1px 3px 8px 3px rgba(138,140,139,0.61);
 box-shadow: 1px 3px 8px 3px rgba(138,140,139,0.61);
 }
+
+.border-landing {
+  border: 2px solid $gray-background;
+  padding: 13px;
+  font-size: 60px;
+  line-height: 1em;
+  text-align: center;
+  color: white;
+  display: inline-block;
+  width: 180px;
+  margin-top: 300px;
+}

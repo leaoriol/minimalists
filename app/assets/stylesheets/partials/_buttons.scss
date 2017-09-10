@@ -7,9 +7,9 @@
   padding-left: 40px;
   padding-right: 40px;
 }
-
 .btn-success:hover {
-  background-color: $hover-color;
+  background-color: $morning-sky;
+  border: 1px solid $morning-sky;
 }
 
 .btn {
@@ -28,8 +28,26 @@
   line-height: 0.85em;
 }
 
+.btn-landing {
+  background-color: $text-color;
+  color: white;
+  border: none;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 1.2em;
+  font-weight: 100;
+}
+.btn-landing:hover {
+  background-color: $gray-background;
+}
+
 .color-circle {
   color: $logo-color;
+}
+
+.landing-color {
+  color: $light-text-color;
 }
 
 .pointer {

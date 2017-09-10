@@ -13,13 +13,15 @@
   </head>
 
   <body>
-    <% flash.each do |message_type, message| %>
+    <div class="body-margin">
+      <% flash.each do |message_type, message| %>
         <div class="<%= message_type %>"><%= message %></div>
-    <% end %>
-    <%= render 'nav/header' %>
-    <div class="container">
-      <%= yield %> 
-    </div> <!-- body -->
-    <%= render 'nav/footer' %>
+      <% end %>
+      <%= render 'nav/header' %>
+      <div class="container">
+        <%= yield %> 
+      </div> <!-- body -->
+      <%= render 'nav/footer' %>
+    </div>
   </body>
 </html>
