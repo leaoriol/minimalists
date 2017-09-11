@@ -62,3 +62,8 @@
 .checklist {
   color: $logo-color;
 }
+
+.js-login-switch:hover {
+  border-bottom: 2px solid $gray-background;
+  margin-bottom: 8px;
+}

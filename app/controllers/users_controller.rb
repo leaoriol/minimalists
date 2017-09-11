@@ -18,7 +18,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def session_switch 
+    @session_type = params[:session_type]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
+
   def user_params
     params.require(:user).permit(:name)
   end

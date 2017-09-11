@@ -4,37 +4,11 @@
   <div class="row margin-bottom-large">
     <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
       <div class="margin-bottom-md">
-        <h1 class="inline prm" id="js-login-switch" data-action="sign-in" >Sign in</h1>
-        <h1 class="inline" id="js-login-switch" data-action="sign-up" >Sign up</h1>
+        <h1 class="inline margin-right-sm js-login-switch" data-action="sign-in" >Log in</h1>
+        <h1 class="inline js-login-switch" data-action="sign-up" >Sign up</h1>
       </div>
       <div class="js-user-session-form">
-        <div class="user-session-box">
-          <div class="basic-form">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="field">
-                <%= f.label :email %><br />
-                <%= f.email_field :email, autofocus: true %>
-              </div>
-
-              <div class="field">
-                <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "off" %>
-              </div>
-
-              <% if devise_mapping.rememberable? -%>
-                <div class="checkbox">
-                  <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
-                </div>
-              <% end -%>
-
-              <div class="actions">
-                <%= f.submit "Log in" %>
-              </div>
-            <% end %>
-            <h3><%= render "devise/shared/links" %></h3>
-          </div>
-        </div>
+        <%= render 'users/sign_in' %>
       </div>
     </div>
   </div>

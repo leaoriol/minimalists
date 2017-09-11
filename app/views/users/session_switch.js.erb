@@ -1,0 +1,8 @@
+<% if @session_type.include?('in') %>
+  $('.js-user-session-form').html("<%= escape_javascript(render partial: 'sign_in' ) %>");
+<% else %>
+  $('.js-user-session-form').html("<%= escape_javascript(render partial: 'sign_up' ) %>");
+<% end %>
+console.log('Session type: <%= @session_type %>');
+
+
