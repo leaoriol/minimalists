@@ -74,6 +74,11 @@ section {
   color: $light-text-color;
 }
 
+.focus {
+  border-bottom: 2px solid $text-color;
+  margin-bottom: 8px;
+}
+
 
 
 // typography for specific sections

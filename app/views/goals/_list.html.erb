@@ -1,6 +1,6 @@
 <!-- partial for list tile in goals -->
 <div class="m-list-goal-box">
-  <h4><%=list.capitalize %></h4>
+  <h4><%= capitalize(list.name) %></h4>
   <div class="c100 p<%= list.percent_success %> center small">
     <span><%= list.percent_success %>%</span>
     <div class="slice">

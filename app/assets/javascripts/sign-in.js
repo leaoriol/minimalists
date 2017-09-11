@@ -1,9 +1,9 @@
 $(document).on('turbolinks:load', function() {
-  // to grab the value of the action 
 
-  // switch the header font depending on selection
+  $('h1[ data-action=sign-in]').removeClass('light-text-color').addClass('focus');
+  $('h1[ data-action=sign-up]').addClass('light-text-color').removeClass('focus');
 
-  // render correct partial
+  // render correct partial through ajax call
   $(".js-login-switch").click(function() {
     var sessionType = $(this).attr('data-action');
     console.log(sessionType);

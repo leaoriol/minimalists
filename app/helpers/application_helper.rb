@@ -16,8 +16,8 @@ module ApplicationHelper
     end
   end
 
-  def capitalize
-    name.slice(0,1).capitalize + name.slice(1..-1)
+  def capitalize(string)
+    string.slice(0,1).capitalize + string.slice(1..-1)
   end
 
   def resource_name

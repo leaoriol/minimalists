@@ -1,6 +1,20 @@
+$.fn.removeFocus = function() {
+  this.addClass('light-text-color').removeClass('focus');
+  return this;
+}
+
+$.fn.addFocus = function () {
+  this.removeClass('light-text-color').addClass('focus');
+  return this;
+}
+
 <% if @session_type.include?('in') %>
+  $('h1[ data-action=sign-up]' ).removeFocus();
+  $('h1[ data-action=sign-in]' ).addFocus();
   $('.js-user-session-form').html("<%= escape_javascript(render partial: 'sign_in' ) %>");
 <% else %>
+  $('h1[ data-action=sign-in]' ).removeFocus();
+  $('h1[ data-action=sign-up]' ).addFocus();
   $('.js-user-session-form').html("<%= escape_javascript(render partial: 'sign_up' ) %>");
 <% end %>
 console.log('Session type: <%= @session_type %>');
