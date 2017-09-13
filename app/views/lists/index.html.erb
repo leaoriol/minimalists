@@ -1,23 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<div>
-  <div class="margin-bottom-sm">
-    <h1 class="center">My lists of stuff</h1>
-    <div class="row margin-bottom-large">
-      <div class="margin-top-sm center">
-        <ol class="main-list">
-            <%= render @lists %>
-        </ol>
+
+<div class="margin-bottom-large">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="section-header">
+        <h1>My lists</h1>
       </div>
-    </div> <!-- lists -->
+    </div>
+  </div>
+  <% if @lists.empty? %>
     <div class="row margin-top-large margin-bottom-large">
       <div class="container-fluid center">
         <div class="row">
           <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-            <%= link_to "Create anoter list", new_list_path, class: "create-list" %>
+            <p class="create-list">Sadly, it looks like you don't have any list yet.</p>
+            <p class="small">Let's start your minimaList journey</p>
+            <div class="margin-top-md">
+              <%= link_to "Create a list", new_list_path, class: "btn btn-landing margin-top-md" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  <% else %>
+    <div class="row margin-top-large margin-bottom-large">
+      <% current_user.lists.all.each_slice(3) do |three_lists| %>
+        <div class="row"> <!-- 3 first lists -->
+          <% three_lists.each do |list| %>
+            <div class="col-xs-12 col-md-12 col-lg-4 center">
+              <%= link_to list_path(list), class: "m-inherit-link" do %>
+                <%= render 'list', list: list %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="margin-top-md center">
+        <%= link_to "Add another list", new_list_path, class: "btn btn-landing" %>
+      </div>
+    </div>
+  <% end %>
 </div>

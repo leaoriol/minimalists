@@ -5,10 +5,10 @@
     <%= @list.id %>
   </div>
   <div class="row margin-bottom-large">
-    <div class="col-xs-12 col-md-12 col-lg-6">
+    <div class="col-xs-12 col-md-6 col-lg-6">
       <div class="row">
         <div class="col-xs-12">
-          <h1>My <%= @list.name %> list</h1>
+          <h1><%= @list.name %></h1>
         </div>
         <div class="col-xs-12">
           <div class="grey-text">
@@ -23,7 +23,7 @@
       </div>
     </div> <!-- title and goal -->
 
-    <div class="col-xs-12 col-md-12 col-lg-6">
+    <div class="col-xs-12 col-md-6 col-lg-6">
       <div class="row">
         <div class="col-xs-12">
           <div class="margin-top-large">
@@ -63,9 +63,9 @@
     </div> <!-- search and filter -->
   </div>
 
-  <div class="row ptl margin-bottom-large">
-    <% if @list.items.any? %> <!-- show items -->
-      <div class="col-xs-12 col-md-6 col-lg-6">
+  <div class="row margin-bottom-large">
+    <% if @list.items.any? %> <!-- show items  -->
+       <div class="col-xs-12 col-md-6 col-lg-6">
         <div class="list-thumbnail center margin-bottom-md">
           <i class="fa fa-thumbs-o-up fa-3x" aria-hidden="true"></i>
         </div>
@@ -84,8 +84,9 @@
     <% else %> <!-- no items -->
       <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <div class="center margin-bottom-sm">
-          <h3>Nothing?</h3>
-          <p>C'mon, you cannot be that minimalist.</p>
+          <h1>Nothing?</h1>
+          <h2>At all?</h2>
+          <p>C'mon, you cannot be <i>that</i> minimalist.</p>
         </div>
       </div>
     <% end %>

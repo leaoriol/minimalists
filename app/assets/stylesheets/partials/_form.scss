@@ -16,7 +16,7 @@
     padding-left: 10px;
   }
   input[type=submit] {
-    background-color: $logo-color;
+    background-color: $gray-button;
     border: none;
     color: white;
     text-align: center;
@@ -44,7 +44,7 @@
     margin-bottom: 20px;
   } 
   input[type=submit] {
-    background-color: $logo-color;
+    background-color: $gray-button;
     border: none;
     color: white;
     text-align: center;
@@ -64,7 +64,7 @@
   }
   form input {
     color: #666666;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 14px;
     outline: none;
     padding: 5px;
@@ -76,11 +76,12 @@
     width: 60px;
   }
   input[type=submit] {
-    background-color: $logo-color;
+    background-color: $gray-button;
     color: white;
     height: 40px;
     width: 130px;
     border: none;
+    margin-bottom: 10px;
     text-align: center;
   }
   select {
