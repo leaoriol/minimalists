@@ -23,16 +23,16 @@
   <% else %>
     <div class="row margin-top-large margin-bottom-large">
       <% current_user.lists.all.each_slice(3) do |three_lists| %>
-        <div class="row"> <!-- 3 first lists -->
-          <% three_lists.each do |list| %>
-            <div class="col-xs-12 col-md-12 col-lg-4 center">
-              <%= link_to list_path(list), class: "m-inherit-link" do %>
-                <%= render 'list', list: list %>
-              <% end %>
-            </div>
+        <% three_lists.each do |list| %>
+          <div class="col-xs-12 col-md-12 col-lg-4 center">
+            <%= link_to list_path(list), class: "m-inherit-link" do %>
+              <%= render 'list', list: list %>
+            <% end %>
           <% end %>
         </div>
       <% end %>
+    </div>
+    <div class="row">
       <div class="margin-top-md center">
         <%= link_to "Add another list", new_list_path, class: "btn btn-landing" %>
       </div>

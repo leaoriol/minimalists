@@ -29,3 +29,10 @@
   padding-bottom: 3px;
   padding-left: 12px;
 }
+
+input.list-title-input {
+  border: none;
+}
+input.list-title-input:focus {
+  outline: none;
+}

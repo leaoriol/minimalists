@@ -1,29 +1,25 @@
 <% provide(:title, "Goals") %>
-<p id="notice"><%= notice %></p>
 
 <div class="margin-bottom-large">
-  <div class="">
     <% if Goal.where(:user_id => current_user.id).empty? %> <!-- display create goal -->
-      <div class="row">
-        <div class="banner">
-          <div class="js-no-goal-banner">
-            <div class="center">
-              <h1>Hmm, you don't have a goal yet.</h1>
-              <h3>Set a goal for the total number of items you'd like to own</h3>
-              <h3 class="small">That way, you can reach your minimaList ambitions</h3>
-              <div class="margin-top-md">
-                <p class="soft">Add a goal</p>
-                <span class="js-toggle-create pointer">
-                  <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
-                </span>
-             </div>
-            </div>
-          </div> 
-          <div class="js-create-goal-banner">
-            <%= render 'form', goal: Goal.new %>
+      <div class="banner">
+        <div class="js-no-goal-banner">
+          <div class="center">
+            <h1>Hmm, you don't have a goal yet.</h1>
+            <h3>Set a goal for the total number of items you'd like to own</h3>
+            <h3 class="small">That way, you can reach your minimaList ambitions</h3>
+            <div class="margin-top-md">
+              <p class="soft">Add a goal</p>
+              <span class="js-toggle-create pointer">
+                <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
+              </span>
+           </div>
           </div>
+        </div> 
+        <div class="js-create-goal-banner">
+          <%= render 'form', goal: Goal.new %>
         </div>
-      </div> <!-- no goal banner -->
+      </div>
     <% else %> <!-- display goal if user has a goal -->
       <div class="hidden js-goal-id">
         <%= current_user.goal.id %>
@@ -74,49 +70,44 @@
         </div>
       </div> <!-- goal banner -->
     <% end %> 
-  </div> <!-- goals section --> 
-    <div class="margin-bottom-large margin-top-md">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="section-header">
-            <h4>My lists' goals</h4>
+  <div class="margin-bottom-large margin-top-md">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="section-header">
+          <h4>My lists' goals</h4>
+        </div>
+      </div>
+    </div>
+    <% if current_user.lists.empty? %> <!-- no lists, show create list 
+    option -->
+      <div class="row margin-top-large margin-bottom-large">
+        <div class="container-fluid center">
+          <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
+            <p class="create-list">Sadly, it looks like you don't have a list yet.</p>
+            <div class="margin-top-md">
+              <p class="soft">Add a list</p>
+              <%= link_to new_list_path do %>
+                <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-      <% if current_user.lists.empty? %> <!-- no lists, show create list 
-      option -->
-        <div class="row margin-top-large margin-bottom-large">
-          <div class="container-fluid center">
-            <div class="row">
-              <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-                <p class="create-list">Sadly, it looks like you don't have a list yet.</p>
-                <div class="margin-top-md">
-                  <p class="soft">Add a list</p>
-                  <%= link_to new_list_path do %>
-                    <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% else %> <!-- has some lists, show list tiles -->
-        <!-- iterate through each list and create a tile for each of them -->
-        <div class="row margin-top-large margin-bottom-large">
-          <% current_user.lists.all.each_slice(3) do |three_lists| %>
-            <div class="row"> <!-- 3 first lists -->
-              <% three_lists.each do |list| %>
-                <div class="col-xs-12 col-md-12 col-lg-4 center">
-                  <%= link_to list_path(list), class: "m-inherit-link" do %>
-                    <%= render 'list', list: list %>
-                  <% end %>
-                </div>
+    <% else %> <!-- has some lists, show list tiles -->
+      <!-- iterate through each list and create a tile for each of them -->
+      <div class="row margin-top-large margin-bottom-large">
+        <% current_user.lists.all.each_slice(3) do |three_lists| %>
+          <% three_lists.each do |list| %>
+            <div class="col-xs-12 col-md-12 col-lg-4 center">
+              <%= link_to list_path(list), class: "m-inherit-link" do %>
+                <%= render 'list', list: list %>
               <% end %>
             </div>
           <% end %>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 

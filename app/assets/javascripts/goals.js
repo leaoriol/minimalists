@@ -6,19 +6,19 @@ $(document).on('turbolinks:load', function() {
 
   // set ininitial input width
   var goalLength = $('.js-goal-length').text().trim();
-  console.log("Goal length: " + goalLength);
+  //console.log("Goal length: " + goalLength);
   $('#js-overall-goal').css('width', (goalLength * 24) + 'px');
 
 
   // GOAL PER USER 
   // get user id from the page
   var goalId = $('.js-goal-id').text().trim();
-  console.log("test");
+  //console.log("test");
 
   // update the user overall goal
   $('#js-overall-goal').keyup(function(event) {
     // resize the element
-    console.log("test");
+    // console.log("test");
     $(this).css('width', (($(this).val().length) * 24) + 'px');
 
     // ajax call to make the element

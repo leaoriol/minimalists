@@ -1,5 +1,27 @@
 $(document).on('turbolinks:load', function() {
 
+
+  // UPDATE LIST NAME IN UI ------------------------------------
+  var listId = $('.js-list-id').text().trim();
+  var userId = $('.js-current-user-id').text().trim();
+  // console.log(listId);
+  // console.log(userId);
+
+  $('#js-list-name').keyup(function(event) {
+    var listName = $(this).val();
+    // console.log(listName);
+    var url = '/lists/' + listId
+    var data_send = { list: { id: listId, name: listName, user_id: userId }}
+
+    $.ajax({
+      method: 'PATCH',
+      dataType: 'json',
+      url: url,
+      data: data_send
+    });
+  }); 
+
+
   // SEARCH AND FILTER FUNCTIONALITIES ---------------------------
 
   // gets every element that has the hidden attribute class
