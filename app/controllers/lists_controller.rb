@@ -67,6 +67,13 @@ class ListsController < ApplicationController
     end
   end
 
+    def update_item
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_list
@@ -82,4 +89,6 @@ class ListsController < ApplicationController
       @list = current_user.lists.find_by(id: params[:id])
       redirect_to root_path if @list.nil?
     end
+
+
 end

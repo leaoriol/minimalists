@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get '/contact',     to: 'static_pages#contact'
   get '/account',     to: 'users#account'
   get '/users/session_switch', to: 'users#session_switch', as: 'session_switch'
-  # get '/create_list', to: 'lists#create_list'     
+  # get '/create_list', to: 'lists#create_list'   
+  get "lists/update_item" => 'lists#update_item', :as => :update_item
+  
   
   resources :categories
   resources :item_to_categories

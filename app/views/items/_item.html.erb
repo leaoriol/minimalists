@@ -1,5 +1,10 @@
 <li id="item-<%= item.id %>" class="main-list-item margin-bottom-xsm">
     <div class="item-box">
+<!-- Button trigger modal -->
+<%= link_to 'Add release', update_item_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'}  %>
+
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+
       <div class="hidden-search-attribute hidden">
         <%= item.quantity %>
         <%= item.name %>
@@ -10,11 +15,11 @@
         <%= item.action %>,<%= item.category %>
       </div>
 
-        <p class="inline plm"><%= item.quantity %> <%= item.name %></p> 
+        <p class="inline-block plm"><%= item.quantity %> <%= item.name %></p> 
 
-        <div class="inline pull-right aligner pts">
+        <div class="inline-block pull-right aligner pts">
           <!-- ACTION --> 
-          <div class="item-action-size inline center aligner-item pointer">
+          <div class="item-action-size inline-block center aligner-item pointer">
             <div>
               <i class="fa fa-check-square-o" aria-hidden="true"></i>
             </div>
@@ -22,7 +27,7 @@
           </div>
 
           <!-- CATEGORY --> 
-          <div class="item-category-size inline center pointer">
+          <div class="item-category-size inline-block center pointer">
             <div>
               <i class="fa fa-folder-open-o" aria-hidden="true"></i>
             </div>

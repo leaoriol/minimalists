@@ -1,7 +1,7 @@
 <div class="m-list-goal-box">
   <h4><%= capitalize(list.name) %></h4>
-  <h4 class="inline "><%= list.object_count %> items</h4>
-  <h4 class="inline separator center">Goal: <%= list.set_goal %></h4>
+  <h4 class="inline-block "><%= list.object_count %> items</h4>
+  <h4 class="inline-block separator center">Goal: <%= list.set_goal %></h4>
   <br/>
   <%= link_to list_path(list.id), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } do %>
     <i class="fa fa-trash-o" aria-hidden="true"></i>

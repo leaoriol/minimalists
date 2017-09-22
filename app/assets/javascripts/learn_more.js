@@ -9,9 +9,9 @@ $(document).on('turbolinks:load', function() {
   learnMoreGoalBanner.hide();
   learnMoreBrainBanner.hide();
 
-  $('.js-toggle-learn-more-list').click(function() {
+  $('.js-toggle-learn-more-list').click(function(event) {
     console.log('list banner');
-    learnMoreListBanner.show();
+    learnMoreListBanner.toggle();
     learnMoreGoalBanner.hide();
     learnMoreBrainBanner.hide();
   });
@@ -19,7 +19,7 @@ $(document).on('turbolinks:load', function() {
   $('.js-toggle-learn-more-goal').click(function() {
     console.log('goal banner');
     learnMoreListBanner.hide();
-    learnMoreGoalBanner.show();
+    learnMoreGoalBanner.toggle();
     learnMoreBrainBanner.hide();
   });
 
@@ -27,7 +27,8 @@ $(document).on('turbolinks:load', function() {
     console.log('brain banner');
     learnMoreListBanner.hide();
     learnMoreGoalBanner.hide();
-    learnMoreBrainBanner.show();
+    learnMoreBrainBanner.toggle();
   });
 
 });
+

@@ -61,6 +61,10 @@ body {
   line-height: 1em;
 }
 
+.light-text {
+  color: white;
+}
+
 .light-text-color {
   color: $light-text-color;
 }
@@ -104,6 +108,20 @@ section {
 
 .hero-photo-text {
   font-weight: 200;
+}
+
+.definition {
+  a {
+    color: white;
+    border-bottom: 1px solid;
+  } 
+
+  p {
+    font-weight: 100;
+    font-size: 0.85em;
+    letter-spacing: 1.5px;
+    line-height: 28px;
+  }
 }
 
 

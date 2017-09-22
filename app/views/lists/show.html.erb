@@ -44,7 +44,7 @@
               <div class="button-group right-align">
                 FILTER BY: 
                 <!--<i class="fa fa-sliders" aria-hidden="true"></i>-->
-                <div class="inline margin-left-sm">
+                <div class="inline-block margin-left-sm">
                   <button type="button" class="btn btn-small btn-default btn-sm dropdown-toggle" data-toggle="dropdown">ACTIONS <span class="caret"></span></button>
                   <ul class="dropdown-menu">
                     <% Item.actions.each do |action| %>
@@ -53,7 +53,7 @@
                   </ul>
                 </div> <!-- actions filter -->
 
-                <div class="inline">
+                <div class="inline-block">
                   <button type="button" class="btn btn-small btn-default btn-sm dropdown-toggle" data-toggle="dropdown">CATEGORIES <span class="caret"></span></button>
                   <ul class="dropdown-menu">
                     <% @list.items.map(&:category).uniq.each do |cat| %>
