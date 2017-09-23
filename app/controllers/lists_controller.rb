@@ -67,12 +67,6 @@ class ListsController < ApplicationController
     end
   end
 
-    def update_item
-      respond_to do |format|
-        format.html
-        format.js
-      end
-    end
 
   private
     # Use callbacks to share common setup or constraints between actions.

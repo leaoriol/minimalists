@@ -21,7 +21,14 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    @item = Item.find params[:id] # params is URL param
+    @item = Item.find params[:id] 
+    @list = @item.list
+    puts @item.id
+    # debugger
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /items
