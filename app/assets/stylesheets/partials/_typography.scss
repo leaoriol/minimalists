@@ -52,6 +52,13 @@ body {
   font-size: 1.5em; 
 }
 
+a {
+  color: $logo-color;
+}
+a:hover {
+  color: $hover-color;
+}
+
 .logo-landing {
   color: white;
   font-family: $nunito;
@@ -123,7 +130,6 @@ section {
     line-height: 28px;
   }
 }
-
 
 
 

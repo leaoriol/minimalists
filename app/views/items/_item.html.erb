@@ -11,7 +11,7 @@
       <%= item.action %>,<%= item.category %>
     </div>
 
-      <p class="inline-block plm"><%= item.quantity %> <%= item.name %></p>
+      <p class="inline-block plm"><%= pluralize(item.quantity, item.name) %></p>
 
       <div class="inline-block pull-right aligner pts">
         <!-- ACTION --> 

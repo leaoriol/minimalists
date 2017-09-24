@@ -1,5 +1,16 @@
 $(document).on('turbolinks:load', function() {
 
+  // INITIALIZE TOOLTIPS  ---------------------------------------
+  options = {
+    container: 'body',
+    placement: 'top',
+    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow" style="color: rgb(237, 241, 242); border-top-color: rgb(237, 241, 242);"></div><div class="tooltip-inner" style="background-color: rgb(237, 241, 242);"></div></div>'
+  };
+
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip(options)
+  })
+
 
   // UPDATE LIST NAME IN UI ------------------------------------
   var listId = $('.js-list-id').text().trim();
@@ -144,9 +155,10 @@ $(document).on('turbolinks:load', function() {
   var createItemBanner = $('.js-create-item-banner');
   createItemBanner.hide();
 
-  $('.js-toggle-create-item').click(function() {
+  $('.js-toggle-create-item').click(function(event) {
     buttonCreateItem.hide();
     createItemBanner.toggle();
+    event.preventDefault();
   });
 
 
