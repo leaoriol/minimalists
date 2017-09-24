@@ -16,6 +16,7 @@ Rails.application.configure do
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+  
 
   # Code is not reloaded between requests.
   config.cache_classes = true
