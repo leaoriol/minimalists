@@ -1,80 +1,82 @@
 <% provide(:title, "Goals") %>
 
 <div class="margin-bottom-large">
-    <% if Goal.where(:user_id => current_user.id).empty? %> <!-- display create goal -->
-      <div class="banner">
-        <div class="js-no-goal-banner">
-          <div class="center">
-            <h2 class="pbs">Hmm, looks like you don't have a goal yet</h2>
-            <h3>Set a goal to track how many items you'd like to own</h3>
-            <h3 class="small">Read more on how goals can help you reach your MinimaList ambitions <%= link_to 'here', learn_more_path %></h3>
-            <div class="margin-top-md pts">
-              <p class="soft">Add a goal</p>
-              <span class="js-toggle-create pointer">
-                <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
-              </span>
-           </div>
-          </div>
-        </div> 
-        <div class="js-create-goal-banner">
-          <%= render 'form', goal: Goal.new %>
+  <% if Goal.where(:user_id => current_user.id).empty? %> <!-- display create goal -->
+    <div class="banner">
+      <div class="js-no-goal-banner">
+        <div class="center">
+          <h2 class="pbs">Hmm, looks like you don't have a goal yet</h2>
+          <h3>Set a goal to track how many items you'd like to own</h3>
+          <h3 class="small">Read more on how goals can help you reach your MinimaList ambitions <%= link_to 'here', learn_more_path %></h3>
+          <div class="margin-top-md pts">
+            <p class="soft">Add a goal</p>
+            <span class="js-toggle-create pointer">
+              <i class="fa fa-plus-circle fa-2x color-circle" aria-hidden="true"></i>
+            </span>
+         </div>
         </div>
+      </div> 
+      <div class="js-create-goal-banner">
+        <%= render 'form', goal: Goal.new %>
       </div>
-    <% else %> <!-- display goal if user has a goal -->
-      <div class="hidden js-goal-id">
-        <%= current_user.goal.id %>
-      </div>
-      <div class="hidden js-goal-length">
-        <%= current_user.goal_count.to_s.length %>
-      </div>
+    </div>
+  <% else %> <!-- display goal if user has a goal -->
+    <div class="hidden js-goal-id">
+      <%= current_user.goal.id %>
+    </div>
+    <div class="hidden js-goal-length">
+      <%= current_user.goal_count.to_s.length %>
+    </div>
+    <div class="banner">
       <div class="row">
-        <div class="banner">
-          <div class="row">
-            <div class="center">
-              <h1>My goal is to own 
+        <div class="center">
+          <h1>My goal is to own 
 
-                <input class="overall-goal no-spinners center" id="js-overall-goal" value="<%= current_user.goal_count %>" min="0" type="number"></input> 
+            <input class="overall-goal no-spinners center" id="js-overall-goal" value="<%= current_user.goal_count %>" min="0" type="number"></input> 
 
-                <%= pluralize_without_count(current_user.object_count, "item", ".") %>
-               </h1>
-            </div>
-          </div> <!-- title row -->
-          <div class="row">
-            <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-              <div class="c100 p<%= current_user.percent_success %> center">
-                <span><%= current_user.percent_success %>%</span>
-                <div class="slice">
-                  <div class="bar"></div>
-                  <div class="fill"></div>
-                </div>
-              </div>
-            </div> <!-- percentage goal --> 
-            <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-              <div class="goals-number">
-                <%= current_user.lists.count %>
-              </div>
-              <div class="goals-title">
-                <%= pluralize_without_count(current_user.lists.count, 'list') %>    
-              </div>
-            </div> <!-- total lists --> 
-            <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
-              <!-- check if users has lists -->
-              <div class="goals-number">
-                <%= current_user.object_count %>
-              </div>
-              <div class="goals-title">
-                <%= pluralize_without_count(current_user.object_count, 'item') %>
-              </div>
-            </div> <!-- total items -->
-          </div> <!-- icons row -->
+            <%= pluralize_without_count(current_user.object_count, "item", ".") %>
+           </h1>
+           <h3 class="pbm">Here is where I am at today:</h3>
         </div>
-      </div> <!-- goal banner -->
-    <% end %> 
+      </div> <!-- title row -->
+
+      <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+          <div class="goals-number">
+            <%= current_user.lists.count %>
+          </div>
+          <div class="goals-title">
+            <%= pluralize_without_count(current_user.lists.count, 'list') %>    
+          </div>
+          
+        </div> <!-- percentage goal --> 
+        <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+          <div class="c100 p<%= current_user.percent_success %> center">
+            <span><%= current_user.percent_success %>%</span>
+            <div class="slice">
+              <div class="bar"></div>
+              <div class="fill"></div>
+            </div>
+          </div>
+        
+        </div> <!-- total lists --> 
+        <div class="col-xs-12 col-md-12 col-lg-4 center ptm pbm">
+          <!-- check if users has lists -->
+          <div class="goals-number">
+            <%= current_user.object_count %>
+          </div>
+          <div class="goals-title">
+            <%= pluralize_without_count(current_user.object_count, 'item') %>
+          </div>
+        </div> <!-- total items -->
+      </div> <!-- icons row -->
+    </div> <!-- goal banner -->
+  <% end %> 
   <div class="margin-bottom-large margin-top-md">
     <div class="row">
       <div class="col-xs-12">
         <div class="section-header">
-          <h4>My lists' goals</h4>
+          <h4>Goals per list</h4>
         </div>
       </div>
     </div>

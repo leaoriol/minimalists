@@ -14,14 +14,22 @@
   display: none;
 }
 
+.dropdown {
+  display: inline-block;
+}
+
 .dropdown-menu {
   min-width: 112px;
   left: auto;
   border-radius: 0px;
   font-size: 13px;
+  a {
+    margin-left: 5px;
+  }
 }
 
 .dropdown-menu li a {
+  font-family: $nunito;
   white-space: normal;
   padding: 3px 12px;
   padding-top: 3px;

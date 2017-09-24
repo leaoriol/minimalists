@@ -9,8 +9,12 @@
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
         <div class="center">
-          <%= link_to "Get started", new_list_path, class: "btn btn-landing" %>
-          <h3>Or <%= link_to "sign in", '/users/sign_in' %> if you already have an account</h3>
+          <% if (!user_signed_in?) %>
+            <%= link_to "Get started", new_list_path, class: "btn btn-landing" %>
+            <h3>Or <%= link_to "sign in", '/users/sign_in' %> if you already have an account</h3>
+          <% else %>
+            <%= link_to "My Lists", lists_path, class: "btn btn-landing" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -20,9 +24,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
-        <div class="center">
-          <p class="landing">MinimaLists helps you reach spareness and simplicity. By listing your possessions, you reach an awareness of how much you own.</p>
-          <p class="landing">What you do next is up to you.</p>
+        <div class="center landing">
+          <h2 class="margin-bottom-md">MinimaLists helps you reach spareness and simplicity.</h2>
+          <p class="landing margin-bottom-md">By listing your possessions, you reach an awareness of how much you own. You can then start letting go and getting rid of stuff.</p>
+          <p class="landing margin-bottom-large">What you do with the extra (mind) space is up to you.</p>
+          <%= link_to "Learn More", learn_more_path, class: "btn btn-landing" %>
         </div>
       </div>
     </div>

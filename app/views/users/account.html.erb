@@ -1,7 +1,6 @@
 <!-- created manually to go with users controller -->
 <% provide(:title, "My Account") %>
 
-<div class="container">
   <div class="row margin-bottom-sm">
     <div class="col-xs-12 col-sm-12">
       <div class="banner center">
@@ -17,11 +16,10 @@
                 <%= f.submit "Save" %>
               </div>
             <% end %>
-            <%= link_to "Change your password", edit_user_registration_path, class: "nav-links" %>
+            <%= link_to "Change my password", edit_user_registration_path, class: "nav-links" %>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
